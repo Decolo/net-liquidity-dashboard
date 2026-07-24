@@ -64,11 +64,11 @@
 
 - [x] A: G1 隐私闸门（.gitignore）+ big-bang commit + 迁移 Decolo + 开 Pages
       （顺带修复：本地是浅克隆 → unshallow；merge upstream 12 个 cron 数据提交）
-- [ ] B1: `voice.py` 白话映射 + TestRating（TDD）
-- [ ] B2: `build_site.py` 站点构建 + TestSanitize/BriefSchema/History
-- [ ] B3: `web/index.html` 双模式改造（server / Pages 静态）+ 本地验证
-- [ ] C: 两 job workflow（update+deploy）→ dispatch → 验证 Pages 上线
-- [ ] D: us-liquidity-monitor `--mode part1` 消费 brief.json + skill.md/README + 测试
+- [x] B1: `voice.py` 白话映射 + TestRating（TDD）— 9 评级用例钉死 rrp_near_zero 仅信息展示
+- [x] B2: `build_site.py` 站点构建 + 36 测试全绿（含序列化泄漏扫描）
+- [x] B3: 双模式改造（/api/health 探测取代 hostname 判断）+ 浏览器双模式验证
+- [x] C: workflow 上线，dispatch 双 job 全绿（1m17s），Pages 200，brief.json 在线
+- [x] D: part1 完成并推送（46 测试全绿，线上 brief 实测成功）
 - [ ] E2E: skill 端到端跑一次
 
 ## 决策记录（本轮）
