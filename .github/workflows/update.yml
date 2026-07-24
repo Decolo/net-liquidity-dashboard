@@ -2,8 +2,8 @@ name: Update dashboard
 
 on:
   schedule:
-    # 22:00 UTC daily — after the Fed H.4.1 release window (Thursdays ~16:30 ET / 21:30 UTC)
-    - cron: "0 22 * * *"
+    # 22:00 UTC Mon–Fri — after the Fed H.4.1 release window (Thursdays ~16:30 ET / 21:30 UTC; weekends skipped)
+    - cron: "0 22 * * 1-5"
     # Monday + 1st-of-month markers; buckets are resolved by date below, not
     # by which cron fired (same-slot crons get deduped by GitHub).
     - cron: "0 22 * * 1"
