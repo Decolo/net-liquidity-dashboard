@@ -188,6 +188,22 @@
       font-size: .78rem;
       color: var(--muted);
     }
+    /* ── hero (Pages static mode; hidden on local server) ── */
+    .hero-top { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .hero-pill {
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+    .hero-pill.green { background: #123324; color: var(--ok); border-color: #1f5c40; }
+    .hero-pill.yellow { background: #33290f; color: var(--warn); border-color: #6b5520; }
+    .hero-pill.red { background: #3a161a; color: var(--bad); border-color: #6b2a30; }
+    .hero-headline { font-size: 1.05rem; font-weight: 650; }
+    .hero-drivers { margin: 10px 0 4px; padding-left: 20px; color: var(--muted); font-size: .86rem; }
+    .hero-spark { margin-top: 8px; }
+    .hero-spark svg { width: 100%; height: 44px; display: block; }
   </style>
 </head>
 <body>
@@ -198,8 +214,8 @@
     </div>
     <div class="actions">
       <button class="primary" onclick="load()">刷新显示</button>
-      <button onclick="pull('daily')">重新拉日频数据</button>
-      <a class="linkbtn" href="/api/report" target="_blank">文本报告</a>
+      <button id="pull-btn" onclick="pull('daily')">重新拉日频数据</button>
+      <a class="linkbtn" id="report-link" href="/api/report" target="_blank">文本报告</a>
     </div>
   </header>
 
@@ -210,6 +226,16 @@
       两天可以不一样：例如今天拉取，FRED 数字仍可能停在上周五。<br/>
       这不是买卖按钮；A=银行体系水管，不等于股价涨跌。
     </div>
+
+    <section id="hero" hidden>
+      <div class="hero-top">
+        <span id="hero-pill" class="hero-pill">—</span>
+        <span id="hero-headline" class="hero-headline"></span>
+      </div>
+      <ul id="hero-drivers" class="hero-drivers"></ul>
+      <div id="hero-spark" class="hero-spark"></div>
+      <div class="dates" id="hero-meta"></div>
+    </section>
 
     <div class="regime-row" id="regime" title="制度标记：数据的背景故事，非交易信号"></div>
 
@@ -243,7 +269,7 @@
       </table>
     </details>
 
-    <details>
+    <details id="holdings-details">
       <summary>可选 · 我的持仓微观（Longbridge，持仓常变，仅供参考）</summary>
       <div id="holdings" class="foot">—</div>
     </details>
@@ -255,13 +281,38 @@
 
     <div class="foot">
       纪律：准备金/净流动性 ≠ 美元指数；RRP 降到接近 0 ≠ 自动利多；公司发债 ≠ 美联储放水。<br/>
-      数据目录：~/net-liquidity-dashboard
+      <span id="data-dir">数据目录：~/net-liquidity-dashboard</span>
     </div>
   </main>
 
   <script>
     const $ = (id) => document.getElementById(id);
     const n = (v, d=2) => (v == null || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(d);
+
+    // Dual-mode page: served by server.py (live pulls, holdings) or deployed
+    // to GitHub Pages (static JSON, hero brief). Hostname alone can't tell
+    // them apart (a local static server is also 127.0.0.1), so probe for the
+    // server-only /api/health endpoint once at boot.
+    let IS_SERVER = false;
+    const RATING_ZH = { green: '🟢 充裕', yellow: '🟡 正常偏紧', red: '🔴 紧张' };
+
+    function applyMode() {
+      if (IS_SERVER) return;
+      $('pull-btn').style.display = 'none';
+      $('report-link').href = 'report.txt';
+      $('holdings-details').remove();
+      $('data-dir').textContent = '数据源：FRED / SEC / FINRA / ICI · GitHub Actions 每日自动更新';
+    }
+
+    async function boot() {
+      try {
+        const r = await fetch('/api/health', { cache: 'no-store' });
+        IS_SERVER = r.ok;
+      } catch (e) { /* static mode */ }
+      applyMode();
+      load();
+      loadHero();
+    }
 
     function toneWord(kind, value) {
       // kind: water | price | risk
@@ -297,13 +348,60 @@
 
     async function load() {
       try {
-        const r = await fetch('/api/snapshot', { cache: 'no-store' });
+        const r = await fetch(IS_SERVER ? '/api/snapshot' : './snapshot.json', { cache: 'no-store' });
         if (!r.ok) throw new Error('HTTP ' + r.status);
         const snap = await r.json();
         render(snap);
       } catch (e) {
-        $('hdr').innerHTML = `<span class="err">加载失败：${e}。确认 python server.py 在跑。</span>`;
+        $('hdr').innerHTML = IS_SERVER
+          ? `<span class="err">加载失败：${e}。确认 python server.py 在跑。</span>`
+          : `<span class="err">数据加载失败：${e}。今日构建可能尚未完成，稍后再试。</span>`;
       }
+    }
+
+    // ── hero (static Pages mode only) ──
+    function sparklineSVG(values) {
+      if (!Array.isArray(values) || values.length < 2) return '';
+      const w = 300, h = 44, pad = 3;
+      const min = Math.min(...values), max = Math.max(...values);
+      const span = (max - min) || 1;
+      const step = (w - pad * 2) / (values.length - 1);
+      const pts = values.map((v, i) =>
+        `${(pad + i * step).toFixed(1)},${(h - pad - ((v - min) / span) * (h - pad * 2)).toFixed(1)}`);
+      return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="近7日净流动性走势">
+        <polyline points="${pts.join(' ')}" fill="none" stroke="#5eb1ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>`;
+    }
+
+    function renderHero(b) {
+      const hero = $('hero');
+      if (!b || !b.rating) return;
+      const pill = $('hero-pill');
+      pill.textContent = RATING_ZH[b.rating] || b.rating;
+      pill.className = 'hero-pill ' + b.rating;
+      $('hero-headline').textContent = b.headline || '';
+      const drivers = (b.rating_drivers || []).map(d => `<li>${d}</li>`).join('');
+      $('hero-drivers').innerHTML = drivers;
+      $('hero-drivers').style.display = drivers ? '' : 'none';
+      const spark = (b.net_liquidity && b.net_liquidity.spark_7d) || [];
+      const svg = sparklineSVG(spark);
+      $('hero-spark').innerHTML = svg ||
+        `<div class="dates">7日走势积累中（${b.history_days ?? spark.length}/7）——每日自动记录一次</div>`;
+      const L = (b.regime && b.regime.labels_zh && b.regime.labels_zh.states) || {};
+      const flagsZh = (b.regime && b.regime.labels_zh && b.regime.labels_zh.flags) || [];
+      $('hero-meta').textContent =
+        [L.balance_sheet, L.rates, L.funding].filter(Boolean).concat(flagsZh).join(' · ') +
+        ` · 数据日 ${b.as_of || '—'}` + (svg ? ' · 走势为净流动性（万亿$）' : '');
+      hero.hidden = false;
+    }
+
+    async function loadHero() {
+      if (IS_SERVER) return;  // server = operator view; hero is a Pages feature
+      try {
+        const r = await fetch('api/brief.json', { cache: 'no-store' });
+        if (!r.ok) return;
+        renderHero(await r.json());
+      } catch (e) { /* hero stays hidden */ }
     }
 
     function renderRegime(reg) {
@@ -438,9 +536,10 @@
           <td>有文件≠已确认大额发行金额</td>
         </tr>`;
 
-      // holdings collapsed optional
+      // holdings collapsed optional (element is removed entirely in static mode)
+      const holdEl = $('holdings');
       const h = snap.layers?.holdings;
-      if (h && Array.isArray(h.holdings) && h.holdings.length) {
+      if (holdEl && h && Array.isArray(h.holdings) && h.holdings.length) {
         let html = `<div class="dates">快照拉取：${h.updated_utc || '—'}（持仓列表以券商为准，会变）</div>
           <table><thead><tr><th>代码</th><th>价</th><th>平台资金净额</th><th>资金时间戳</th><th>P/C</th></tr></thead><tbody>`;
         for (const row of h.holdings) {
@@ -459,21 +558,21 @@
         }
         html += `</tbody></table>
           <div class="foot">平台资金流 ≠ 交易所官方；盘口休市常为空。持仓变化请以 Longbridge 为准。</div>`;
-        $('holdings').innerHTML = html;
-      } else {
-        $('holdings').textContent = '暂无持仓快照（或不在关注范围）。需要时再跑 holdings_liquidity_snapshot.py';
+        holdEl.innerHTML = html;
+      } else if (holdEl) {
+        holdEl.textContent = '暂无持仓快照（或不在关注范围）。需要时再跑 holdings_liquidity_snapshot.py';
       }
 
       // charts
       const charts = [
-        ['/charts/net_liquidity.png', '净流动性走势'],
-        ['/charts/components.png', 'WALCL / TGA / RRP 分量'],
-        ['/charts/funding_sofr_iorb.png', '隔夜利率 vs 准备金利率'],
-        ['/charts/bc_panel.png', '信用 / VIX / 日元等'],
-        ['/charts/funding_stress.png', 'CP 利差 / 外国官方逆回购'],
-        ['/charts/h8_panel.png', 'H.8 银行信贷'],
-        ['/charts/buybacks.png', '回购代理 PKW/SPY + 季度回购'],
-        ['/charts/breadth.png', '板块宽度 / SPY 均线'],
+        ['charts/net_liquidity.png', '净流动性走势'],
+        ['charts/components.png', 'WALCL / TGA / RRP 分量'],
+        ['charts/funding_sofr_iorb.png', '隔夜利率 vs 准备金利率'],
+        ['charts/bc_panel.png', '信用 / VIX / 日元等'],
+        ['charts/funding_stress.png', 'CP 利差 / 外国官方逆回购'],
+        ['charts/h8_panel.png', 'H.8 银行信贷'],
+        ['charts/buybacks.png', '回购代理 PKW/SPY + 季度回购'],
+        ['charts/breadth.png', '板块宽度 / SPY 均线'],
       ];
       const t = Date.now();
       $('charts').innerHTML = charts.map(([src, cap]) =>
@@ -493,7 +592,7 @@
       }
     }
 
-    load();
+    boot();
   </script>
 </body>
 </html>

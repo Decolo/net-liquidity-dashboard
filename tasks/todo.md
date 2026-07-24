@@ -53,3 +53,30 @@
 - 2025-Q2 之后的回购数据待补
 - debt_ceiling_watch 是启发式（TGA 30d 降幅 >$100B），确认仍需人工
 - 真实 XCCY basis、期权 gamma、CTA 仓位仍无免费源（已在 excluded 列表声明）
+
+---
+
+# 美元水位计 — Pages 日更站 + Agent 整合（2026-07-24 plan 已批准）
+
+计划文件: ~/.claude/plans/unified-drifting-hollerith.md
+
+## Checklist
+
+- [x] A: G1 隐私闸门（.gitignore）+ big-bang commit + 迁移 Decolo + 开 Pages
+      （顺带修复：本地是浅克隆 → unshallow；merge upstream 12 个 cron 数据提交）
+- [ ] B1: `voice.py` 白话映射 + TestRating（TDD）
+- [ ] B2: `build_site.py` 站点构建 + TestSanitize/BriefSchema/History
+- [ ] B3: `web/index.html` 双模式改造（server / Pages 静态）+ 本地验证
+- [ ] C: 两 job workflow（update+deploy）→ dispatch → 验证 Pages 上线
+- [ ] D: us-liquidity-monitor `--mode part1` 消费 brief.json + skill.md/README + 测试
+- [ ] E2E: skill 端到端跑一次
+
+## 决策记录（本轮）
+
+- 站点纯中文白话；微观（Longbridge）不上日更站，留 agent 实时消费
+- 仓库迁移：ruleaker → Decolo（原账号无写权限，新建仓库推送历史；旧仓库保留为 upstream 远端）
+- 评级规则：🔴 funding=stress 或 vol_elevated；🟡 qt_active 或 hiking 或
+  {credit_tightening, h8_loans_contracting, debt_ceiling_watch}；**rrp_near_zero 仅信息展示**
+  （结构性常态，否则永久黄灯）
+- brief.json 为两仓库契约（schema v1），模板生成无 LLM
+- 隐私：latest_holdings_liq.json 从未被 commit（已核实 git ls-files），.gitignore 防未来
