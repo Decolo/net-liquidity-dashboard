@@ -1,0 +1,45 @@
+{
+  "updated_utc": "2026-07-12 13:54 UTC",
+  "source": "Investment Company Institute (ICI)",
+  "layer": "B-fund/ETF flows",
+  "frequency": "weekly estimates + monthly actuals",
+  "unit": "USD millions",
+  "urls": {
+    "mutual_fund_flows": "https://www.ici.org/flows_data_2026.xls",
+    "combined_mf_etf": "https://www.ici.org/combined_flows_data_2026.xls"
+  },
+  "latest_week": {
+    "mutual_fund_only": {
+      "date": "2026-07-01",
+      "total_mn": -28868.0,
+      "equity_mn": -29913.0,
+      "equity_domestic_mn": -22099.0,
+      "bond_mn": 3731.0
+    },
+    "combined_mf_and_etf": {
+      "date": "2026-07-01",
+      "total_mn": 3433.0,
+      "equity_mn": -10217.0,
+      "equity_domestic_mn": -5828.0,
+      "bond_mn": 18675.0
+    }
+  },
+  "latest_month": {
+    "mutual_fund_only": {
+      "date": "2026-07-01",
+      "total_mn": -28868.0,
+      "equity_mn": -29913.0,
+      "equity_domestic_mn": -22099.0,
+      "bond_mn": 3731.0
+    },
+    "combined_mf_and_etf": {
+      "date": "2026-07-01",
+      "total_mn": 3433.0,
+      "equity_mn": -10217.0,
+      "equity_domestic_mn": -5828.0,
+      "bond_mn": 18675.0
+    }
+  },
+  "read_hint": "combined equity_mn includes MF+ETF \u2014 better 'who is buying stocks' proxy than MF-only (MF-only equity has long been structural outflows into ETFs).",
+  "disclaimer": "Weekly = estimates (~98% coverage). Monthly MF = actual net new cash flow; ETF side in combined = net issuance. Not a trading signal."
+}

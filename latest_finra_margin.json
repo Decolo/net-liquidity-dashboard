@@ -1,0 +1,18 @@
+{
+  "updated_utc": "2026-07-12 13:54 UTC",
+  "source": "FINRA Customer Margin Balances",
+  "source_url": "https://www.finra.org/sites/default/files/2021-03/margin-statistics.xlsx",
+  "layer": "B-leverage (market-wide)",
+  "frequency": "monthly",
+  "unit": "USD millions (except margin_debt_t in trillions)",
+  "as_of_month": "2026-05",
+  "margin_debt_mn": 1415557.0,
+  "margin_debt_t": 1.416,
+  "free_credit_cash_mn": 206600.0,
+  "free_credit_margin_mn": 217256.0,
+  "mom_change_mn": 111276.0,
+  "yoy_change_mn": 494597.0,
+  "history_rows": 353,
+  "history_csv": "/Users/decolo/net-liquidity-dashboard/data/finra_margin_history.csv",
+  "disclaimer": "FINRA publishes aggregate member-firm balances; no official real-time feed. Lag typically ~2\u20133 weeks after month-end. Not a trading signal."
+}

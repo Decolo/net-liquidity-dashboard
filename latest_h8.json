@@ -1,0 +1,26 @@
+{
+  "updated_utc": "2026-07-18 11:46 UTC",
+  "source": "FRED (Fed H.8 release)",
+  "layer": "A-bank credit transmission",
+  "frequency": "weekly (Wednesday release, ~1w lag); BUSLOANS monthly",
+  "unit": "USD billions",
+  "series": {
+    "TLAACBW027SBOG": {
+      "name": "Total loans & leases, all commercial banks",
+      "as_of": "2026-07-08",
+      "value_B": 25619.5,
+      "value_T": 25.619,
+      "chg_4w_B": 155.11,
+      "chg_13w_B": 404.61
+    },
+    "BUSLOANS": {
+      "name": "C&I loans (monthly)",
+      "as_of": "2026-06-01",
+      "value_B": 2894.3,
+      "chg_3m_B": 70.71
+    }
+  },
+  "heuristic_flags": [],
+  "read_hint": "Loan growth = banks passing liquidity through (last-mile transmission). Contraction while net liquidity is flat/up = A-layer overstates easiness.",
+  "disclaimer": "H.8 is a lagging weekly aggregate. Not a trading signal."
+}

@@ -5,3 +5,12 @@ venv/
 .env
 .DS_Store
 *.egg-info/
+
+# Privacy: personal holdings snapshot must never be committed
+latest_holdings_liq.json
+
+# Build output (deployed to Pages via Actions artifact, not git)
+site/
+
+# Local run logs
+logs/

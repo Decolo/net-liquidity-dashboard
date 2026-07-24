@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>美元流动性 · 极简看板</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #141b24;
+      --line: #243041;
+      --text: #e8eef6;
+      --muted: #8b9bb0;
+      --ok: #3dd68c;
+      --bad: #f07178;
+      --warn: #e6b450;
+      --blue: #5eb1ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    h1 { margin: 0; font-size: 1.1rem; font-weight: 650; }
+    .meta { color: var(--muted); font-size: .82rem; margin-top: 4px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .linkbtn {
+      background: #1a2330;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 7px 11px;
+      font-size: .82rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button.primary { background: #1a3a5c; border-color: #2a5a8c; }
+    main { max-width: 920px; margin: 0 auto; padding: 18px 16px 48px; }
+    .howto {
+      background: #121820;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 16px;
+    }
+    .howto b { color: var(--text); }
+    .qgrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 760px) {
+      .qgrid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .qcard {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .qcard .q { font-size: .78rem; color: var(--muted); margin-bottom: 6px; }
+    .qcard .a {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .qcard .why { font-size: .84rem; color: var(--muted); }
+    .tone-ok { color: var(--ok); }
+    .tone-bad { color: var(--bad); }
+    .tone-warn { color: var(--warn); }
+    .tone-flat { color: var(--text); }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    section h2 {
+      margin: 0 0 10px;
+      font-size: .95rem;
+      font-weight: 650;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+    th, td {
+      text-align: left;
+      padding: 8px 6px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .tag {
+      display: inline-block;
+      font-size: .7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #1c2836;
+      color: var(--blue);
+      margin-right: 6px;
+    }
+    .regime-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .rtag {
+      display: inline-block;
+      font-size: .78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #121820;
+      color: var(--text);
+    }
+    .rtag.ok { border-color: #1f5c40; color: var(--ok); }
+    .rtag.bad { border-color: #6b2a30; color: var(--bad); }
+    .rtag.warn { border-color: #6b5520; color: var(--warn); }
+    .rtag.flat { color: var(--muted); }
+    .dates {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+    details summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 600;
+      font-size: .9rem;
+    }
+    details[open] summary { margin-bottom: 8px; }
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 700px) {
+      .charts { grid-template-columns: 1fr 1fr; }
+    }
+    .charts figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    .charts img { width: 100%; display: block; }
+    .charts figcaption {
+      padding: 6px 10px;
+      font-size: .75rem;
+      color: var(--muted);
+      background: #10161e;
+    }
+    .err { color: var(--bad); }
+    .foot {
+      margin-top: 8px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>美元流动性 · 极简看板</h1>
+      <div class="meta" id="hdr">加载中…</div>
+    </div>
+    <div class="actions">
+      <button class="primary" onclick="load()">刷新显示</button>
+      <button onclick="pull('daily')">重新拉日频数据</button>
+      <a class="linkbtn" href="/api/report" target="_blank">文本报告</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="howto">
+      <b>怎么看（30 秒）</b><br/>
+      先看下面三张「大白话结论」→ 再扫表里的<strong>数据日</strong>（数字属于哪一天）和<strong>拉取日</strong>（我们什么时候下载的）。<br/>
+      两天可以不一样：例如今天拉取，FRED 数字仍可能停在上周五。<br/>
+      这不是买卖按钮；A=银行体系水管，不等于股价涨跌。
+    </div>
+
+    <div class="regime-row" id="regime" title="制度标记：数据的背景故事，非交易信号"></div>
+
+    <div class="qgrid" id="answers">
+      <div class="qcard"><div class="q">加载中</div></div>
+    </div>
+
+    <section>
+      <h2><span class="tag">主表</span>日常观察（A + 信用/波动/日元）</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>看什么</th>
+            <th>现在读数</th>
+            <th>数据日</th>
+            <th>一句话</th>
+          </tr>
+        </thead>
+        <tbody id="main-body"></tbody>
+      </table>
+      <div class="foot" id="pull-note"></div>
+    </section>
+
+    <details>
+      <summary>慢变量（不是每天盯）· FINRA / ICI / 发债文件</summary>
+      <table>
+        <thead>
+          <tr><th>项目</th><th>读数</th><th>数据日/范围</th><th>说明</th></tr>
+        </thead>
+        <tbody id="slow-body"></tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>可选 · 我的持仓微观（Longbridge，持仓常变，仅供参考）</summary>
+      <div id="holdings" class="foot">—</div>
+    </details>
+
+    <details>
+      <summary>图（上次日频脚本生成）</summary>
+      <div class="charts" id="charts"></div>
+    </details>
+
+    <div class="foot">
+      纪律：准备金/净流动性 ≠ 美元指数；RRP 降到接近 0 ≠ 自动利多；公司发债 ≠ 美联储放水。<br/>
+      数据目录：~/net-liquidity-dashboard
+    </div>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const n = (v, d=2) => (v == null || Number.isNaN(Number(v))) ? '—' : Number(v).toFixed(d);
+
+    function toneWord(kind, value) {
+      // kind: water | price | risk
+      if (kind === 'water') {
+        if (value == null) return ['—', 'tone-flat'];
+        if (value > 0.02) return ['偏加水（近月）', 'tone-ok'];
+        if (value < -0.02) return ['偏抽水（近月）', 'tone-bad'];
+        return ['水位变化不大', 'tone-flat'];
+      }
+      if (kind === 'price') {
+        if (value == null) return ['—', 'tone-flat'];
+        if (value >= 15) return ['隔夜偏紧/偏贵', 'tone-bad'];
+        if (value <= 0) return ['隔夜不贵', 'tone-ok'];
+        return ['中性附近', 'tone-warn'];
+      }
+      if (kind === 'risk') {
+        // value = {hy, vix}
+        const hy = value?.hy, vix = value?.vix;
+        if (hy == null && vix == null) return ['—', 'tone-flat'];
+        if ((hy != null && hy >= 4.5) || (vix != null && vix >= 25)) return ['信用/波动偏紧', 'tone-bad'];
+        if ((hy != null && hy <= 3.5) && (vix != null && vix < 20)) return ['信用/波动偏平静', 'tone-ok'];
+        return ['中性', 'tone-flat'];
+      }
+      return ['—', 'tone-flat'];
+    }
+
+    function seriesAsOf(bc, key) {
+      return (bc?.series?.[key]?.as_of) || '—';
+    }
+    function seriesVal(bc, key) {
+      return bc?.series?.[key]?.value;
+    }
+
+    async function load() {
+      try {
+        const r = await fetch('/api/snapshot', { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const snap = await r.json();
+        render(snap);
+      } catch (e) {
+        $('hdr').innerHTML = `<span class="err">加载失败：${e}。确认 python server.py 在跑。</span>`;
+      }
+    }
+
+    function renderRegime(reg) {
+      const el = $('regime');
+      if (!reg || !reg.states) { el.innerHTML = ''; return; }
+      const S = {
+        balance_sheet: {
+          qt_active: ['QT 缩表进行中', 'bad'],
+          qe_active: ['扩表中（近30日）', 'ok'],
+          stable: ['资产负债表平稳', 'flat'],
+        },
+        rates: {
+          hiking: ['加息周期', 'bad'],
+          cutting: ['降息周期', 'ok'],
+          on_hold: ['利率按兵不动', 'flat'],
+        },
+        funding: {
+          stress: ['隔夜资金紧张', 'bad'],
+          easy: ['资金面宽松', 'ok'],
+          neutral: ['资金面中性', 'flat'],
+        },
+      };
+      const F = {
+        rrp_near_zero: ['RRP 停车场近空', 'warn'],
+        credit_tightening: ['信用利差收紧', 'bad'],
+        vol_elevated: ['波动率升高', 'bad'],
+        h8_loans_contracting: ['银行信贷收缩', 'bad'],
+        debt_ceiling_watch: ['债务上限观察', 'warn'],
+      };
+      const tags = [];
+      for (const [group, states] of Object.entries(S)) {
+        const v = reg.states[group];
+        if (states[v]) tags.push(`<span class="rtag ${states[v][1]}">${states[v][0]}</span>`);
+      }
+      for (const f of reg.flags || []) {
+        if (F[f]) tags.push(`<span class="rtag ${F[f][1]}">${F[f][0]}</span>`);
+      }
+      el.innerHTML = tags.join('');
+    }
+
+    function render(snap) {
+      const a = snap.layers?.a || {};
+      const bc = snap.layers?.bc || {};
+      const h8 = snap.layers?.h8 || {};
+      const finra = snap.layers?.finra || {};
+      const ici = snap.layers?.ici || {};
+      const bond = snap.layers?.bond || {};
+      const s = snap.summary || {};
+
+      const pullA = a.updated_utc || '—';
+      const pullBC = bc.updated_utc || '—';
+      const gen = snap.generated_utc || '—';
+
+      $('hdr').textContent = `页面生成 ${gen}  ·  日频拉取 A:${pullA} / B-C:${pullBC}`;
+      $('pull-note').textContent = `拉取日 = 脚本写入 JSON 的时间。数据日 = 指标在源站所属的交易日/周。两者不同是正常的。`;
+
+      renderRegime(snap.regime);
+
+      // three answers
+      const d30 = s.delta_30d_T;
+      const [wTxt, wCls] = toneWord('water', d30);
+      const [pTxt, pCls] = toneWord('price', s.sofr_minus_iorb_bp);
+      const [rTxt, rCls] = toneWord('risk', { hy: s.hy_oas, vix: s.vix });
+
+      $('answers').innerHTML = `
+        <div class="qcard">
+          <div class="q">① 银行体系的水 · 多还是少？</div>
+          <div class="a ${wCls}">${wTxt}</div>
+          <div class="why">净流动性约 <b>${n(s.net_liquidity_T, 3)} 万亿$</b>，近 30 日变化 <b>${n(d30, 3)}</b> 万亿。<br/>
+          准备金约 <b>${n(s.wresbal_T, 3)}</b> 万亿；RRP 停车场约 <b>${n(s.rrp_T, 3)}</b> 万亿。</div>
+          <div class="dates">数据日（净流动性对齐）≈ ${a.as_of || '—'} · 拉取 ${pullA}</div>
+        </div>
+        <div class="qcard">
+          <div class="q">② 隔夜借钱 · 贵不贵？</div>
+          <div class="a ${pCls}">${pTxt}</div>
+          <div class="why">SOFR − IORB = <b>${n(s.sofr_minus_iorb_bp, 1)} 基点</b>。<br/>
+          负或接近 0 ≈ 市场价不比准备金利息贵；明显为正且走阔才像「抢钱」。</div>
+          <div class="dates">数据日 ${a.funding_as_of || a.as_of || '—'} · 拉取 ${pullA}</div>
+        </div>
+        <div class="qcard">
+          <div class="q">③ 风险管道 · 吵不吵？</div>
+          <div class="a ${rCls}">${rTxt}</div>
+          <div class="why">垃圾债利差 HY ≈ <b>${n(s.hy_oas, 2)}%</b>；恐慌温度 VIX ≈ <b>${n(s.vix, 2)}</b>。<br/>
+          日元 USD/JPY ≈ <b>${n(s.usdjpy, 2)}</b>（急跌=日元变强，套息压力代理）。</div>
+          <div class="dates">HY/VIX 数据日 ${seriesAsOf(bc,'VIXCLS')} · 日元 ${seriesAsOf(bc,'DEXJPUS')} · 拉取 ${pullBC}</div>
+        </div>`;
+
+      // main table
+      const rows = [
+        ['净流动性（市场合成）', `${n(s.net_liquidity_T, 3)} 万亿$`, a.as_of, 'Fed资产 − 财政部账户 − 逆回购停车场'],
+        ['近30日净流动性变化', `${n(d30, 3)} 万亿$`, a.as_of, '正≈近月偏加水，负≈偏抽水'],
+        ['银行准备金 WRESBAL', `${n(s.wresbal_T, 3)} 万亿$`, a.wresbal_as_of || a.as_of, '更贴近「银行账上有多少水」'],
+        ['RRP 逆回购', `${n(s.rrp_T, 3)} 万亿$`, a.as_of, '闲钱停 Fed 的量；接近 0=停车场空了'],
+        ['SOFR − IORB', `${n(s.sofr_minus_iorb_bp, 1)} bp`, a.funding_as_of || '—', '隔夜贵不贵（价格层）'],
+        ['H.8 银行贷款总额', `${n(s.h8_loans_T, 2)} 万亿$`, (h8.series?.TLAACBW027SBOG?.as_of) || '—', `银行有没有把水传出去；4周变化 ${n(s.h8_loans_chg_4w_B, 0)} 十亿$`],
+        ['回购代理 PKW/SPY (60日)', `${n(s.buyback_ratio_chg_60d_pct, 1)}%`, (snap.layers?.buybacks?.daily_proxy?.as_of) || '—', `回购股相对大盘；200日线上方: ${s.buyback_above_200d_ma == null ? '—' : (s.buyback_above_200d_ma ? '是' : '否')}`],
+        ['板块宽度 >50日线', `${n(s.breadth_pct_above_50d, 0)}%`, (snap.layers?.breadth?.as_of) || '—', '低于30%=普跌；指数强+宽度弱=少数股撑指数'],
+        ['金融CP−国库券利差', `${n(s.fin_cp_spread_bp, 0)} bp`, (snap.layers?.bc?.funding?.fin_cp_bill_bp?.as_of) || '—', 'TED 继任者；走阔=银行短期融资变贵'],
+        ['HY 信用利差', `${n(s.hy_oas, 2)}%`, seriesAsOf(bc,'BAMLH0A0HYM2'), '借给差公司的「保险费」；走阔=更怕风险'],
+        ['VIX', n(s.vix, 2), seriesAsOf(bc,'VIXCLS'), '美股预期波动；升高=更容易机械减仓'],
+        ['USD/JPY', n(s.usdjpy, 2), seriesAsOf(bc,'DEXJPUS'), '套息粗信号；源站常滞后数日'],
+        ['美债 10Y−2Y', `${n(s.t10y2y, 2)}%`, seriesAsOf(bc,'T10Y2Y'), '曲线背景，不单独当买卖信号'],
+      ];
+      $('main-body').innerHTML = rows.map(r => `
+        <tr>
+          <td>${r[0]}</td>
+          <td class="num">${r[1]}</td>
+          <td class="num">${r[2] || '—'}</td>
+          <td>${r[3]}</td>
+        </tr>`).join('');
+
+      // slow
+      const comb = ici?.latest_week?.combined_mf_and_etf || {};
+      const mf = ici?.latest_week?.mutual_fund_only || {};
+      $('slow-body').innerHTML = `
+        <tr>
+          <td>FINRA 全市场融资余额</td>
+          <td class="num">${n(finra.margin_debt_t, 3)} 万亿$</td>
+          <td>${finra.as_of_month || '—'}（月频，常滞后）</td>
+          <td>全美借钱炒股规模；不是你的账户</td>
+        </tr>
+        <tr>
+          <td>ICI 基金+ETF 股票流（周）</td>
+          <td class="num">${comb.equity_mn != null ? comb.equity_mn + ' 百万$' : '—'}</td>
+          <td>周截至 ${comb.date || '—'}</td>
+          <td>优先看 combined，不要只看共同基金</td>
+        </tr>
+        <tr>
+          <td>科技债相关 SEC 文件数</td>
+          <td class="num">${bond.count_in_window ?? '—'}（窗口内）</td>
+          <td>最新文件日 ${(bond.recent && bond.recent[0] && bond.recent[0].filing_date) || '—'}</td>
+          <td>有文件≠已确认大额发行金额</td>
+        </tr>`;
+
+      // holdings collapsed optional
+      const h = snap.layers?.holdings;
+      if (h && Array.isArray(h.holdings) && h.holdings.length) {
+        let html = `<div class="dates">快照拉取：${h.updated_utc || '—'}（持仓列表以券商为准，会变）</div>
+          <table><thead><tr><th>代码</th><th>价</th><th>平台资金净额</th><th>资金时间戳</th><th>P/C</th></tr></thead><tbody>`;
+        for (const row of h.holdings) {
+          const q = row.quote || {};
+          const last = q.extended_last ?? q.last_regular;
+          const cap = row.capital || {};
+          const net = (cap.net || {}).total;
+          const pc = (row.option_volume || {}).put_call_ratio;
+          html += `<tr>
+            <td>${row.symbol || ''}</td>
+            <td class="num">${last != null ? Number(last).toFixed(2) : '—'}</td>
+            <td class="num">${net != null ? Math.round(net).toLocaleString() : '—'}</td>
+            <td class="num">${cap.timestamp || '—'}</td>
+            <td class="num">${pc != null ? Number(pc).toFixed(2) : '—'}</td>
+          </tr>`;
+        }
+        html += `</tbody></table>
+          <div class="foot">平台资金流 ≠ 交易所官方；盘口休市常为空。持仓变化请以 Longbridge 为准。</div>`;
+        $('holdings').innerHTML = html;
+      } else {
+        $('holdings').textContent = '暂无持仓快照（或不在关注范围）。需要时再跑 holdings_liquidity_snapshot.py';
+      }
+
+      // charts
+      const charts = [
+        ['/charts/net_liquidity.png', '净流动性走势'],
+        ['/charts/components.png', 'WALCL / TGA / RRP 分量'],
+        ['/charts/funding_sofr_iorb.png', '隔夜利率 vs 准备金利率'],
+        ['/charts/bc_panel.png', '信用 / VIX / 日元等'],
+        ['/charts/funding_stress.png', 'CP 利差 / 外国官方逆回购'],
+        ['/charts/h8_panel.png', 'H.8 银行信贷'],
+        ['/charts/buybacks.png', '回购代理 PKW/SPY + 季度回购'],
+        ['/charts/breadth.png', '板块宽度 / SPY 均线'],
+      ];
+      const t = Date.now();
+      $('charts').innerHTML = charts.map(([src, cap]) =>
+        `<figure><img src="${src}?t=${t}" alt="${cap}" onerror="this.closest('figure').style.display='none'"/><figcaption>${cap}</figcaption></figure>`
+      ).join('');
+    }
+
+    async function pull(bucket) {
+      $('hdr').textContent = `正在拉 ${bucket} 数据（可能 1–3 分钟）…`;
+      try {
+        const r = await fetch('/api/refresh?bucket=' + encodeURIComponent(bucket), { method: 'POST' });
+        const j = await r.json();
+        if (!r.ok || j.exit_code) throw new Error(j.stderr_tail || j.error || ('exit ' + j.exit_code));
+        await load();
+      } catch (e) {
+        $('hdr').innerHTML = `<span class="err">拉取失败：${e}</span>`;
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>

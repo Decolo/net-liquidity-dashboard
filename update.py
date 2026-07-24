@@ -24,6 +24,9 @@ SERIES = {
     "WALCL": "Fed Balance Sheet",
     "WTREGEN": "Treasury General Account",
     "RRPONTSYD": "Overnight Reverse Repo",
+    "SOFR": "Secured Overnight Financing Rate",
+    "IORB": "Interest on Reserve Balances",
+    "WRESBAL": "Reserve Balances",
 }
 START = "2020-01-01"
 OUT_DIR = Path(__file__).parent / "charts"
@@ -38,6 +41,9 @@ COLORS = {
     "WALCL": "#3fb950",
     "WTREGEN": "#f85149",
     "RRPONTSYD": "#58a6ff",
+    "SOFR": "#58a6ff",
+    "IORB": "#3fb950",
+    "SPREAD": "#f0b429",
 }
 
 
@@ -178,7 +184,93 @@ def plot_components(walcl: pd.Series, tga: pd.Series, rrp: pd.Series) -> Path:
     return out
 
 
-def write_status(walcl: pd.Series, tga: pd.Series, rrp: pd.Series) -> None:
+def plot_funding(sofr: pd.Series, iorb: pd.Series) -> Path:
+    """Price-layer: SOFR, IORB, and SOFR−IORB spread (bp)."""
+    idx = sofr.index.union(iorb.index)
+    idx = idx[idx >= pd.Timestamp(START)]
+    sofr_a = sofr.reindex(idx).ffill().dropna()
+    iorb_a = iorb.reindex(idx).ffill().dropna()
+    both = sofr_a.index.intersection(iorb_a.index)
+    sofr_a = sofr_a.loc[both]
+    iorb_a = iorb_a.loc[both]
+    spread_bp = (sofr_a - iorb_a) * 100.0  # percent → bp
+
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(12, 7), sharex=True, gridspec_kw={"height_ratios": [2, 1.2]}
+    )
+    fig.patch.set_facecolor(BG)
+
+    ax1.plot(sofr_a.index, sofr_a.values, color=COLORS["SOFR"], linewidth=1.6, label="SOFR")
+    ax1.plot(iorb_a.index, iorb_a.values, color=COLORS["IORB"], linewidth=1.6, label="IORB")
+    styled_ax(ax1)
+    ax1.set_ylabel("%", color=FG)
+    ax1.set_title(
+        "Funding prices  ·  SOFR vs IORB  (A-layer price)",
+        color=FG, fontsize=13, fontweight="bold", pad=12,
+    )
+    leg = ax1.legend(loc="upper left", facecolor=BG, edgecolor=GRID, labelcolor=FG)
+    for txt in leg.get_texts():
+        txt.set_color(FG)
+    if not sofr_a.empty:
+        ax1.text(
+            0.99, 0.92,
+            f"SOFR {sofr_a.iloc[-1]:.2f}%  ·  IORB {iorb_a.iloc[-1]:.2f}%  ·  {sofr_a.index[-1].strftime('%Y-%m-%d')}",
+            transform=ax1.transAxes, color=FG, fontsize=9, ha="right", alpha=0.9,
+        )
+
+    ax2.fill_between(
+        spread_bp.index, 0, spread_bp.values,
+        where=spread_bp.values >= 0, color="#f85149", alpha=0.55, interpolate=True,
+    )
+    ax2.fill_between(
+        spread_bp.index, 0, spread_bp.values,
+        where=spread_bp.values < 0, color="#3fb950", alpha=0.45, interpolate=True,
+    )
+    ax2.plot(spread_bp.index, spread_bp.values, color=COLORS["SPREAD"], linewidth=1.2)
+    ax2.axhline(0, color=GRID, linewidth=0.9)
+    styled_ax(ax2)
+    ax2.set_ylabel("SOFR − IORB (bp)", color=FG)
+    ax2.set_title(
+        "Spread: >0 means secured overnight above reserve interest (tighter funding feel)",
+        color=FG, fontsize=10, pad=6, loc="left",
+    )
+
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    fig.text(
+        0.99, 0.01,
+        f"Updated {stamp}  ·  Source: FRED (SOFR, IORB)  ·  not a trading signal",
+        ha="right", va="bottom", color=FG, fontsize=8, alpha=0.7,
+    )
+    plt.tight_layout()
+    out = OUT_DIR / "funding_sofr_iorb.png"
+    fig.savefig(out, dpi=180, facecolor=BG)
+    plt.close(fig)
+    return out
+
+
+def _chg_days(s: pd.Series, days: int) -> float | None:
+    """Change over a calendar-day lookback using as-of alignment."""
+    s = s.dropna()
+    if s.empty:
+        return None
+    end = s.index[-1]
+    start = end - pd.Timedelta(days=days)
+    if start < s.index[0]:
+        return None
+    past = s.asof(start)
+    if pd.isna(past):
+        return None
+    return float(s.iloc[-1] - past)
+
+
+def write_status(
+    walcl: pd.Series,
+    tga: pd.Series,
+    rrp: pd.Series,
+    sofr: pd.Series | None = None,
+    iorb: pd.Series | None = None,
+    wresbal: pd.Series | None = None,
+) -> None:
     walcl_t = walcl / 1_000_000
     tga_t = tga / 1_000_000
     rrp_t = rrp / 1_000
@@ -197,7 +289,46 @@ def write_status(walcl: pd.Series, tga: pd.Series, rrp: pd.Series) -> None:
         "rrp_T": round(float(rrp_t.iloc[-1]), 3),
         "delta_30d_T": round(float(net_t.iloc[-1] - net_t.iloc[-31]), 3) if len(net_t) > 31 else None,
         "updated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "notes": {
+            "net_liquidity": "Market proxy: WALCL - TGA - RRP (not official Fed series)",
+            "units": "WALCL/TGA FRED millions; RRP billions; WRESBAL millions → T as noted",
+            "funding": "SOFR-IORB in bp; positive = SOFR above IORB",
+        },
     }
+
+    if wresbal is not None and not wresbal.empty:
+        # WRESBAL: millions of USD (week average / similar to reserves)
+        latest["wresbal_T"] = round(float(wresbal.iloc[-1]) / 1_000_000, 3)
+        latest["wresbal_as_of"] = wresbal.index[-1].strftime("%Y-%m-%d")
+
+    # Regime inputs (consumed by regime.py — keep field names stable)
+    walcl_chg = _chg_days(walcl, 30)  # millions
+    if walcl_chg is not None:
+        latest["walcl_chg_30d_B"] = round(walcl_chg / 1000, 2)
+    tga_chg = _chg_days(tga, 30)  # millions
+    if tga_chg is not None:
+        latest["tga_chg_30d_B"] = round(tga_chg / 1000, 2)
+    if iorb is not None and not iorb.empty:
+        iorb_chg = _chg_days(iorb, 60)  # percent
+        if iorb_chg is not None:
+            latest["iorb_chg_60d_bp"] = round(iorb_chg * 100, 1)
+
+    if sofr is not None and iorb is not None and not sofr.empty and not iorb.empty:
+        # Align last common date
+        both = sofr.dropna().index.intersection(iorb.dropna().index)
+        if len(both) > 0:
+            d = both[-1]
+            s = float(sofr.loc[d])
+            i = float(iorb.loc[d])
+            latest["sofr_pct"] = round(s, 4)
+            latest["iorb_pct"] = round(i, 4)
+            latest["sofr_minus_iorb_bp"] = round((s - i) * 100.0, 2)
+            latest["funding_as_of"] = d.strftime("%Y-%m-%d")
+            if len(both) > 5:
+                s5 = float(sofr.loc[both[-6]])
+                i5 = float(iorb.loc[both[-6]])
+                latest["sofr_minus_iorb_bp_5d_ago"] = round((s5 - i5) * 100.0, 2)
+
     (Path(__file__).parent / "latest.json").write_text(
         __import__("json").dumps(latest, indent=2) + "\n", encoding="utf-8"
     )
@@ -212,6 +343,18 @@ def main() -> int:
     print(f"  WTREGEN:   {len(tga):>5} pts, latest {tga.index[-1].date()}  ${tga.iloc[-1]/1_000_000:.2f}T")
     print(f"  RRPONTSYD: {len(rrp):>5} pts, latest {rrp.index[-1].date()}  ${rrp.iloc[-1]/1_000:.2f}T")
 
+    print("Fetching funding + reserves (SOFR, IORB, WRESBAL)...")
+    sofr = fetch_fred("SOFR")
+    iorb = fetch_fred("IORB")
+    wresbal = fetch_fred("WRESBAL")
+    print(f"  SOFR:      {len(sofr):>5} pts, latest {sofr.index[-1].date()}  {sofr.iloc[-1]:.2f}%")
+    print(f"  IORB:      {len(iorb):>5} pts, latest {iorb.index[-1].date()}  {iorb.iloc[-1]:.2f}%")
+    both = sofr.dropna().index.intersection(iorb.dropna().index)
+    if len(both):
+        sp_bp = (float(sofr.loc[both[-1]]) - float(iorb.loc[both[-1]])) * 100.0
+        print(f"  SOFR−IORB: {sp_bp:+.1f} bp  (as of {both[-1].date()})")
+    print(f"  WRESBAL:   {len(wresbal):>5} pts, latest {wresbal.index[-1].date()}  ${wresbal.iloc[-1]/1_000_000:.2f}T")
+
     print("Fetching BTC/USD...")
     btc = fetch_btc()
     if btc.empty:
@@ -222,10 +365,12 @@ def main() -> int:
     print("Rendering charts...")
     p1 = plot_net_liquidity(walcl, tga, rrp, btc)
     p2 = plot_components(walcl, tga, rrp)
+    p3 = plot_funding(sofr, iorb)
     print(f"  wrote {p1}")
     print(f"  wrote {p2}")
+    print(f"  wrote {p3}")
 
-    write_status(walcl, tga, rrp)
+    write_status(walcl, tga, rrp, sofr=sofr, iorb=iorb, wresbal=wresbal)
     print("Wrote latest.json")
     return 0
 

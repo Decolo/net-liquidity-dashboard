@@ -1,0 +1,22 @@
+{
+  "daily": [
+    "update.py",
+    "update_bc.py",
+    "update_bond_issuance.py",
+    "update_h8.py",
+    "update_buybacks.py",
+    "update_breadth.py"
+  ],
+  "session": [
+    "holdings_liquidity_snapshot.py"
+  ],
+  "weekly": [
+    "update_ici_flows.py"
+  ],
+  "monthly": [
+    "update_finra_margin.py"
+  ],
+  "event": [
+    "update_bond_issuance.py"
+  ]
+}

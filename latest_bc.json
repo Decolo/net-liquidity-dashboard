@@ -1,0 +1,96 @@
+{
+  "updated_utc": "2026-07-18 11:46 UTC",
+  "layer": "B/C auto slice (partial)",
+  "coverage": {
+    "included": [
+      "BAMLH0A0HYM2",
+      "VIXCLS",
+      "DEXJPUS",
+      "DTWEXBGS",
+      "T10Y2Y",
+      "DCPF3M",
+      "DCPN3M",
+      "DTB3",
+      "WLRRAFOIAL"
+    ],
+    "excluded": [
+      "options_gamma",
+      "cta_positioning",
+      "order_book_depth",
+      "xccy_basis_true"
+    ]
+  },
+  "series": {
+    "BAMLH0A0HYM2": {
+      "name": "HY OAS (ICE BofA)",
+      "layer": "B-credit",
+      "as_of": "2026-07-16",
+      "value": 2.71,
+      "chg_5d": 0.01,
+      "chg_20d": 0.05
+    },
+    "VIXCLS": {
+      "name": "VIX",
+      "layer": "C-vol",
+      "as_of": "2026-07-16",
+      "value": 16.73,
+      "chg_5d": 0.89,
+      "chg_20d": 0.33
+    },
+    "DEXJPUS": {
+      "name": "USD/JPY",
+      "layer": "B-carry",
+      "as_of": "2026-07-10",
+      "value": 161.31,
+      "chg_5d": 0.41,
+      "chg_20d": 0.84
+    },
+    "DTWEXBGS": {
+      "name": "Broad USD (DTWEXBGS)",
+      "layer": "B-dollar",
+      "as_of": "2026-07-10",
+      "value": 120.5046,
+      "chg_5d": -0.1856,
+      "chg_20d": 0.5912
+    },
+    "T10Y2Y": {
+      "name": "10Y-2Y curve",
+      "layer": "B-curve",
+      "as_of": "2026-07-17",
+      "value": 0.37,
+      "chg_5d": 0.02,
+      "chg_20d": 0.08
+    }
+  },
+  "read_hints": {
+    "BAMLH0A0HYM2": "HY spread wider = credit tighter (B leverage pipe)",
+    "VIXCLS": "Higher vol = C-layer mechanical de-risk risk up",
+    "DEXJPUS": "JPY strength (USDJPY down) = yen-carry stress proxy",
+    "DTWEXBGS": "Broad dollar; NOT bank reserves (see A-layer)",
+    "T10Y2Y": "Curve; context for risk appetite / growth pricing",
+    "fin_cp_bill_bp": "Financial CP \u2212 bill = TED successor; widening = bank funding premium up",
+    "nonfin_cp_bill_bp": "Corporate short-term funding premium",
+    "WLRRAFOIAL": "Foreign official RRP; jump = foreign CBs hoarding dollars at Fed"
+  },
+  "funding": {
+    "fin_cp_bill_bp": {
+      "as_of": "2026-07-16",
+      "value_bp": 22.0,
+      "chg_5d_bp": 3.0,
+      "chg_20d_bp": 15.0
+    },
+    "nonfin_cp_bill_bp": {
+      "as_of": "2026-06-26",
+      "value_bp": 5.0,
+      "chg_5d_bp": 3.0,
+      "chg_20d_bp": -10.0
+    },
+    "foreign_official_rrp": {
+      "as_of": "2026-07-15",
+      "value_B": 353.9,
+      "chg_4w_B": 25.1
+    }
+  },
+  "heuristic_flags": [],
+  "disclaimer": "Heuristic flags are teaching aids only. B buybacks/flows tracked separately (see latest_buybacks.json); true XCCY basis and C microstructure are NOT in this feed."
+}
