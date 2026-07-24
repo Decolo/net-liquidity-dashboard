@@ -1,13 +1,13 @@
 {
-  "updated_utc": "2026-07-18 11:46 UTC",
+  "updated_utc": "2026-07-24 06:07 UTC",
   "source": "yfinance (PKW, SPY) + S&P DJI quarterly (manual CSV)",
   "layer": "B-buybacks (proxy)",
   "daily_proxy": {
-    "as_of": "2026-07-17",
-    "pkw_spy_ratio_norm": 0.891,
+    "as_of": "2026-07-23",
+    "pkw_spy_ratio_norm": 0.8904,
     "above_200d_ma": false,
-    "chg_20d_pct": 4.07,
-    "chg_60d_pct": -2.2
+    "chg_20d_pct": 1.4,
+    "chg_60d_pct": 0.7
   },
   "quarterly_sp500": {
     "latest_quarter": "2025-Q1",
@@ -15,12 +15,10 @@
     "trailing_4q_B": 1014.2,
     "yoy_pct": 23.9,
     "rows": 13,
-    "csv": "/Users/decolo/Github/net-liquidity-dashboard/data/sp500_buybacks_quarterly.csv",
+    "csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/sp500_buybacks_quarterly.csv",
     "append_hint": "Add new quarters from S&P DJI buyback press releases (~2-3w after quarter-end)."
   },
-  "heuristic_flags": [
-    "buyback_proxy_weak"
-  ],
+  "heuristic_flags": [],
   "read_hint": "PKW/SPY falling = buyback-heavy names underperforming \u2248 buyback impulse fading. Quarterly S&P total is the ground truth (lagged ~1 quarter).",
   "disclaimer": "Proxy only \u2014 real daily buyback execution data is desk-proprietary. Not a trading signal."
 }

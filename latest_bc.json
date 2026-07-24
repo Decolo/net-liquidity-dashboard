@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-18 11:46 UTC",
+  "updated_utc": "2026-07-24 06:06 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -24,42 +24,42 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-07-16",
-      "value": 2.71,
-      "chg_5d": 0.01,
-      "chg_20d": 0.05
+      "as_of": "2026-07-22",
+      "value": 2.68,
+      "chg_5d": -0.03,
+      "chg_20d": -0.08
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-07-16",
-      "value": 16.73,
-      "chg_5d": 0.89,
-      "chg_20d": 0.33
+      "as_of": "2026-07-22",
+      "value": 16.64,
+      "chg_5d": 0.97,
+      "chg_20d": -1.99
     },
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-07-10",
-      "value": 161.31,
-      "chg_5d": 0.41,
-      "chg_20d": 0.84
+      "as_of": "2026-07-17",
+      "value": 162.43,
+      "chg_5d": 1.12,
+      "chg_20d": 2.21
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-07-10",
-      "value": 120.5046,
-      "chg_5d": -0.1856,
-      "chg_20d": 0.5912
+      "as_of": "2026-07-17",
+      "value": 120.5315,
+      "chg_5d": 0.0269,
+      "chg_20d": 1.1444
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-07-17",
-      "value": 0.37,
-      "chg_5d": 0.02,
-      "chg_20d": 0.08
+      "as_of": "2026-07-23",
+      "value": 0.34,
+      "chg_5d": -0.07,
+      "chg_20d": 0.04
     }
   },
   "read_hints": {
@@ -74,21 +74,21 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-07-16",
-      "value_bp": 22.0,
-      "chg_5d_bp": 3.0,
-      "chg_20d_bp": 15.0
+      "as_of": "2026-07-20",
+      "value_bp": 3.0,
+      "chg_5d_bp": -13.0,
+      "chg_20d_bp": -6.0
     },
     "nonfin_cp_bill_bp": {
-      "as_of": "2026-06-26",
-      "value_bp": 5.0,
-      "chg_5d_bp": 3.0,
-      "chg_20d_bp": -10.0
+      "as_of": "2026-07-21",
+      "value_bp": -6.0,
+      "chg_5d_bp": -9.0,
+      "chg_20d_bp": -21.0
     },
     "foreign_official_rrp": {
-      "as_of": "2026-07-15",
-      "value_B": 353.9,
-      "chg_4w_B": 25.1
+      "as_of": "2026-07-22",
+      "value_B": 352.3,
+      "chg_4w_B": 20.3
     }
   },
   "heuristic_flags": [],
