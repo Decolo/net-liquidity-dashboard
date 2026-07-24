@@ -1,24 +1,9 @@
 {
-  "as_of": "2026-07-17",
-  "net_liquidity_T": 5.987,
-  "walcl_T": 6.743,
-  "tga_T": 0.756,
-  "rrp_T": 0.0,
-  "delta_30d_T": 0.153,
-  "updated_utc": "2026-07-18 11:46 UTC",
-  "notes": {
-    "net_liquidity": "Market proxy: WALCL - TGA - RRP (not official Fed series)",
-    "units": "WALCL/TGA FRED millions; RRP billions; WRESBAL millions \u2192 T as noted",
-    "funding": "SOFR-IORB in bp; positive = SOFR above IORB"
-  },
-  "wresbal_T": 3.143,
-  "wresbal_as_of": "2026-07-15",
-  "walcl_chg_30d_B": 17.63,
-  "tga_chg_30d_B": -71.9,
-  "iorb_chg_60d_bp": 0.0,
-  "sofr_pct": 3.62,
-  "iorb_pct": 3.65,
-  "sofr_minus_iorb_bp": -3.0,
-  "funding_as_of": "2026-07-16",
-  "sofr_minus_iorb_bp_5d_ago": -12.0
+  "as_of": "2026-07-23",
+  "net_liquidity_T": 5.917,
+  "walcl_T": 6.747,
+  "tga_T": 0.83,
+  "rrp_T": 0.001,
+  "delta_30d_T": 0.082,
+  "updated_utc": "2026-07-23 22:52 UTC"
 }
