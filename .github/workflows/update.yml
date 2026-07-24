@@ -4,18 +4,32 @@ on:
   schedule:
     # 22:00 UTC daily — after the Fed H.4.1 release window (Thursdays ~16:30 ET / 21:30 UTC)
     - cron: "0 22 * * *"
-  workflow_dispatch: {}
+    # Monday + 1st-of-month markers; buckets are resolved by date below, not
+    # by which cron fired (same-slot crons get deduped by GitHub).
+    - cron: "0 22 * * 1"
+    - cron: "0 22 1 * *"
+  workflow_dispatch:
+    inputs:
+      bucket:
+        description: "Extra bucket to run alongside daily"
+        required: false
+        default: "none"
+        type: choice
+        options: [none, weekly, monthly, all]
 
 permissions:
-  contents: write
+  contents: read # top-level minimal; elevated per-job
 
 concurrency:
   group: update-dashboard
-  cancel-in-progress: false
+  cancel-in-progress: false # never cancel between commit and push
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,18 +45,72 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run update.py
-        run: python update.py
+      - name: Resolve buckets by date
+        id: buckets
+        run: |
+          {
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              b="${{ github.event.inputs.bucket }}"
+              { [ "$b" = "weekly" ] || [ "$b" = "all" ]; } && echo "weekly=true" || echo "weekly=false"
+              { [ "$b" = "monthly" ] || [ "$b" = "all" ]; } && echo "monthly=true" || echo "monthly=false"
+            else
+              [ "$(date -u +%u)" = "1" ] && echo "weekly=true" || echo "weekly=false"
+              [ "$(date -u +%d)" = "01" ] && echo "monthly=true" || echo "monthly=false"
+            fi
+          } >> "$GITHUB_OUTPUT"
+
+      # Stale-not-missing: a failed fetch leaves the committed last-good JSON
+      # in place, and the build below tolerates partial data. Never let one
+      # source's bad day kill the whole update.
+      - name: Run daily bucket
+        continue-on-error: true
+        run: python run_jobs.py daily
+
+      - name: Run weekly bucket (Mondays / dispatch)
+        if: steps.buckets.outputs.weekly == 'true'
+        continue-on-error: true
+        run: python run_jobs.py weekly
+
+      - name: Run monthly bucket (1st / dispatch)
+        if: steps.buckets.outputs.monthly == 'true'
+        continue-on-error: true
+        run: python run_jobs.py monthly
+
+      - name: Build static site
+        if: always()
+        run: python build_site.py
 
       - name: Commit and push if changed
         run: |
-          git config user.name  "ruleaker"
-          git config user.email "ruleaker@yeah.net"
-          git add charts/ latest.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # git add -A is safe ONLY because .gitignore covers
+          # latest_holdings_liq.json, site/, logs/. Do not switch to globs
+          # like `git add latest*.json` — an ignored match fails the step.
+          git add -A
           if git diff --staged --quiet; then
             echo "No changes to commit."
             exit 0
           fi
           stamp=$(date -u '+%Y-%m-%d %H:%M UTC')
-          git commit -m "chore: refresh dashboard (${stamp})"
+          git commit -m "chore: daily data + brief history (${stamp})"
           git push
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,6 +1,8 @@
-# Net Liquidity Dashboard
+# Net Liquidity Dashboard · 美元水位计
 
 > Daily-updated dashboard tracking US Net Liquidity (Fed balance sheet − TGA − RRP) and its components. Refreshed automatically via GitHub Actions.
+>
+> **在线白话看板（中文 plain-language, daily）: https://decolo.github.io/net-liquidity-dashboard/**
 
 ![Net Liquidity vs BTC](charts/net_liquidity.png)
 
@@ -48,6 +50,28 @@ python update.py
 ```
 
 Outputs land in `charts/` and `latest.json`.
+
+## Static site & machine-readable brief
+
+`python build_site.py` assembles a deployable static site into `site/`:
+
+- `site/index.html` — the 白话 dashboard (same file as `web/index.html`, dual-mode)
+- `site/snapshot.json` — merged multi-layer snapshot (sanitized: no local paths, no holdings)
+- `site/api/brief.json` — **schema v1 contract**: rating 🟢🟡🔴, headline, rating drivers,
+  regime labels (zh), vitals, 7-day sparkline series. Deterministic template output, no LLM.
+  Consumed by the [us-liquidity-monitor](https://github.com/Decolo/us-liquidity-monitor)
+  skill as its macro layer (`compute.py --mode part1`).
+- `site/report.txt` — plain-text analysis skeleton
+
+The GitHub Actions workflow runs the full daily bucket (see `jobs.json`), builds the site,
+commits data back, and deploys `site/` to GitHub Pages. Weekly (Mondays) and monthly (1st)
+buckets run automatically; `workflow_dispatch` accepts an optional extra bucket.
+`data/brief_history.jsonl` accumulates one record per build for sparkline trends.
+
+Local full server (live pulls + holdings layer, operator view): `python server.py`
+→ http://127.0.0.1:8765. The `session` bucket (`holdings_liquidity_snapshot.py`)
+requires the Longbridge CLI and runs locally only — its output is gitignored and never
+published.
 
 ## Data sources
 

@@ -81,3 +81,18 @@ FINRA / ICI / bond SEC feed are **enhancements**:
 - Bond = event proxy for CSP capital markets docs
 
 Core daily still: `update.py` + `update_bc.py`.
+
+---
+
+## CI 接管说明（2026-07-24）
+
+GitHub Actions（update.yml）现在负责：
+- **daily** bucket：每天 22:00 UTC
+- **weekly** bucket：每周一 22:00 UTC（date 派生，非 cron 字符串匹配）
+- **monthly** bucket：每月 1 日 22:00 UTC
+- 构建 `site/` → commit 数据回仓库 → 部署 GitHub Pages
+
+**session** bucket（holdings_liquidity_snapshot.py）留在本地手动跑——
+需要 Longbridge CLI 登录态，输出文件被 .gitignore 排除，永不发布。
+
+本地 cron 可以退役；保留 `python run_jobs.py <bucket>` 手动入口不变。
