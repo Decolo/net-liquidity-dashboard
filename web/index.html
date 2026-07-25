@@ -501,6 +501,8 @@
         ['板块宽度 >50日线', `${n(s.breadth_pct_above_50d, 0)}%`, (snap.layers?.breadth?.as_of) || '—', '低于30%=普跌；指数强+宽度弱=少数股撑指数'],
         ['金融CP−国库券利差', `${n(s.fin_cp_spread_bp, 0)} bp`, (snap.layers?.bc?.funding?.fin_cp_bill_bp?.as_of) || '—', 'TED 继任者；走阔=银行短期融资变贵'],
         ['HY 信用利差', `${n(s.hy_oas, 2)}%`, seriesAsOf(bc,'BAMLH0A0HYM2'), '借给差公司的「保险费」；走阔=更怕风险'],
+        ['IG 信用利差', `${n(s.ig_oas, 2)}%`, seriesAsOf(bc,'BAMLC0A0CM'), '借给好公司的「保险费」；走阔=系统性信用风险'],
+        ['杠杆ETF总规模', `$${n(s.lev_etf_total_aum_B, 1)}B`, (snap.layers?.lev_etf?.updated_utc)?.slice(0,10) || '—', '散户/交易型资金的杠杆押注量；急剧缩水=情绪退潮'],
         ['VIX', n(s.vix, 2), seriesAsOf(bc,'VIXCLS'), '美股预期波动；升高=更容易机械减仓'],
         ['USD/JPY', n(s.usdjpy, 2), seriesAsOf(bc,'DEXJPUS'), '套息粗信号；源站常滞后数日'],
         ['美债 10Y−2Y', `${n(s.t10y2y, 2)}%`, seriesAsOf(bc,'T10Y2Y'), '曲线背景，不单独当买卖信号'],

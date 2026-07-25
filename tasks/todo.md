@@ -69,7 +69,15 @@
 - [x] B3: 双模式改造（/api/health 探测取代 hostname 判断）+ 浏览器双模式验证
 - [x] C: workflow 上线，dispatch 双 job 全绿（1m17s），Pages 200，brief.json 在线
 - [x] D: part1 完成并推送（46 测试全绿，线上 brief 实测成功）
-- [ ] E2E: skill 端到端跑一次
+- [x] E2E: skill 端到端跑一次
+
+## 完成记录（E2E，2026-07-24）
+
+- `python3 compute.py --mode part1` 线上 brief.json 拉取成功（schema_version=1，rating=green，as_of=2026-07-23）
+- `python3 compute.py --mode full` TIER 0 正常渲染中文宏观层，站点来源标注为 decolo.github.io/net-liquidity-dashboard
+- `python3 compute.py --mode weekly` JSON 有效，7 日 sparkline 与环比正常
+- 按 skill.md「报告呈现契约」输出三层白话报告：宏观层直接引用 brief.json headline/regime 标签未改写
+- 观察到关键现象：宏观 🟢 充裕 vs 微观多 🔴（IWM 脆弱、Amihud 上升趋势、量能异常低），BLUF 按规则评为 🔴 紧张并说明宏观对冲理由
 
 ## 决策记录（本轮）
 

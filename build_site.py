@@ -129,6 +129,7 @@ def history_record(snap: dict, rating: str) -> dict:
         "delta_30d_T": s.get("delta_30d_T"),
         "vix": s.get("vix"),
         "hy_oas": s.get("hy_oas"),
+        "ig_oas": s.get("ig_oas"),
         "sofr_iorb_bp": s.get("sofr_minus_iorb_bp"),
         "rating": rating,
     }
@@ -173,9 +174,11 @@ def build_brief(snap: dict, history: list) -> dict:
         "vitals": {
             "vix": summary.get("vix"),
             "hy_oas_pct": summary.get("hy_oas"),
+            "ig_oas_pct": summary.get("ig_oas"),
             "sofr_iorb_bp": summary.get("sofr_minus_iorb_bp"),
             "t10y2y": summary.get("t10y2y"),
             "breadth_pct_above_50d": summary.get("breadth_pct_above_50d"),
+            "lev_etf_aum_B": summary.get("lev_etf_total_aum_B"),
         },
     }
 

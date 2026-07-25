@@ -5,7 +5,8 @@
     "update_bond_issuance.py",
     "update_h8.py",
     "update_buybacks.py",
-    "update_breadth.py"
+    "update_breadth.py",
+    "update_lev_etf.py"
   ],
   "session": [
     "holdings_liquidity_snapshot.py"

@@ -46,6 +46,7 @@ GRID = "#21262d"
 
 SERIES = {
     "BAMLH0A0HYM2": {"name": "HY OAS (ICE BofA)", "unit": "pct", "layer": "B-credit"},
+    "BAMLC0A0CM": {"name": "IG OAS (ICE BofA)", "unit": "pct", "layer": "B-credit"},
     "VIXCLS": {"name": "VIX", "unit": "index", "layer": "C-vol"},
     "DEXJPUS": {"name": "USD/JPY", "unit": "fx", "layer": "B-carry"},
     "DTWEXBGS": {"name": "Broad USD (DTWEXBGS)", "unit": "index", "layer": "B-dollar"},
@@ -218,6 +219,7 @@ def write_status(
         "series": {},
         "read_hints": {
             "BAMLH0A0HYM2": "HY spread wider = credit tighter (B leverage pipe)",
+            "BAMLC0A0CM": "IG spread wider = investment-grade stress (corporate bond pipe)",
             "VIXCLS": "Higher vol = C-layer mechanical de-risk risk up",
             "DEXJPUS": "JPY strength (USDJPY down) = yen-carry stress proxy",
             "DTWEXBGS": "Broad dollar; NOT bank reserves (see A-layer)",

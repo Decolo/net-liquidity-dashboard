@@ -46,6 +46,7 @@ JSON_FILES = {
     "finra": ROOT / "latest_finra_margin.json",
     "ici": ROOT / "latest_ici_flows.json",
     "bond": ROOT / "latest_bond_issuance.json",
+    "lev_etf": ROOT / "latest_lev_etf.json",
     "holdings": ROOT / "latest_holdings_liq.json",
 }
 
@@ -76,6 +77,7 @@ def build_snapshot() -> Dict[str, Any]:
         "rrp_T": a.get("rrp_T"),
         "sofr_minus_iorb_bp": a.get("sofr_minus_iorb_bp"),
         "hy_oas": s("BAMLH0A0HYM2"),
+        "ig_oas": s("BAMLC0A0CM"),
         "vix": s("VIXCLS"),
         "usdjpy": s("DEXJPUS"),
         "t10y2y": s("T10Y2Y"),
@@ -109,6 +111,11 @@ def build_snapshot() -> Dict[str, Any]:
         "breadth_pct_above_50d": (
             ((layers.get("breadth") or {}).get("sectors") or {}).get("pct_above_50d_ma")
             if isinstance(layers.get("breadth"), dict)
+            else None
+        ),
+        "lev_etf_total_aum_B": (
+            (layers.get("lev_etf") or {}).get("total_aum_B")
+            if isinstance(layers.get("lev_etf"), dict)
             else None
         ),
         "fin_cp_spread_bp": (
