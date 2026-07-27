@@ -1,9 +1,10 @@
 {
-  "updated_utc": "2026-07-24 22:57 UTC",
+  "updated_utc": "2026-07-27 22:56 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
       "BAMLH0A0HYM2",
+      "BAMLC0A0CM",
       "VIXCLS",
       "DEXJPUS",
       "DTWEXBGS",
@@ -24,46 +25,55 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-07-23",
-      "value": 2.77,
+      "as_of": "2026-07-24",
+      "value": 2.79,
       "chg_5d": 0.06,
-      "chg_20d": -0.01
+      "chg_20d": -0.04
+    },
+    "BAMLC0A0CM": {
+      "name": "IG OAS (ICE BofA)",
+      "layer": "B-credit",
+      "as_of": "2026-07-24",
+      "value": 0.8,
+      "chg_5d": 0.01,
+      "chg_20d": 0.03
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-07-23",
-      "value": 18.7,
-      "chg_5d": 1.97,
-      "chg_20d": -0.19
+      "as_of": "2026-07-24",
+      "value": 18.58,
+      "chg_5d": -0.19,
+      "chg_20d": 0.17
     },
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-07-17",
-      "value": 162.43,
-      "chg_5d": 1.12,
-      "chg_20d": 2.21
+      "as_of": "2026-07-24",
+      "value": 163.71,
+      "chg_5d": 1.28,
+      "chg_20d": 2.04
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-07-17",
-      "value": 120.5315,
-      "chg_5d": 0.0269,
-      "chg_20d": 1.1444
+      "as_of": "2026-07-24",
+      "value": 120.7105,
+      "chg_5d": 0.179,
+      "chg_20d": -0.3454
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-07-24",
-      "value": 0.36,
-      "chg_5d": -0.01,
-      "chg_20d": 0.05
+      "as_of": "2026-07-27",
+      "value": 0.34,
+      "chg_5d": -0.05,
+      "chg_20d": 0.03
     }
   },
   "read_hints": {
     "BAMLH0A0HYM2": "HY spread wider = credit tighter (B leverage pipe)",
+    "BAMLC0A0CM": "IG spread wider = investment-grade stress (corporate bond pipe)",
     "VIXCLS": "Higher vol = C-layer mechanical de-risk risk up",
     "DEXJPUS": "JPY strength (USDJPY down) = yen-carry stress proxy",
     "DTWEXBGS": "Broad dollar; NOT bank reserves (see A-layer)",
