@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-30 22:59 UTC",
+  "updated_utc": "2026-07-31 22:55 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -25,26 +25,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-07-29",
-      "value": 2.87,
-      "chg_5d": 0.19,
-      "chg_20d": 0.13
+      "as_of": "2026-07-30",
+      "value": 2.84,
+      "chg_5d": 0.07,
+      "chg_20d": 0.09
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-07-29",
-      "value": 0.81,
-      "chg_5d": 0.03,
+      "as_of": "2026-07-30",
+      "value": 0.8,
+      "chg_5d": 0.01,
       "chg_20d": 0.05
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-07-29",
-      "value": 20.66,
-      "chg_5d": 4.02,
-      "chg_20d": 4.07
+      "as_of": "2026-07-30",
+      "value": 17.09,
+      "chg_5d": -1.61,
+      "chg_20d": 0.94
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -65,10 +65,10 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-07-30",
-      "value": 0.45,
+      "as_of": "2026-07-31",
+      "value": 0.47,
       "chg_5d": 0.11,
-      "chg_20d": 0.14
+      "chg_20d": 0.12
     }
   },
   "read_hints": {
@@ -90,10 +90,10 @@
       "chg_20d_bp": 10.0
     },
     "nonfin_cp_bill_bp": {
-      "as_of": "2026-07-27",
-      "value_bp": -8.0,
-      "chg_5d_bp": -13.0,
-      "chg_20d_bp": -17.0
+      "as_of": "2026-07-30",
+      "value_bp": 9.0,
+      "chg_5d_bp": 4.0,
+      "chg_20d_bp": -4.0
     },
     "foreign_official_rrp": {
       "as_of": "2026-07-29",

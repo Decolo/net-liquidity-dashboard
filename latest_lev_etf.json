@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-30 23:00 UTC",
+  "updated_utc": "2026-07-31 22:55 UTC",
   "source": "Yahoo Finance (yfinance)",
   "layer": "B-leverage",
   "total_aum_B": 105.3,
@@ -10,80 +10,80 @@
       "name": "Direxion Daily Semiconductor Bu",
       "aum_M": 31596.0,
       "shares_M": null,
-      "price": 91.99,
-      "as_of": "2026-07-30"
+      "price": 114.72,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "SOXS",
       "name": "Direxion Daily Semiconductor Be",
       "aum_M": 1262.5,
       "shares_M": null,
-      "price": 73.15,
-      "as_of": "2026-07-30"
+      "price": 53.92,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "USD",
       "name": "ProShares Ultra Semiconductors",
       "aum_M": 3149.4,
       "shares_M": null,
-      "price": 68.78,
-      "as_of": "2026-07-30"
+      "price": 77.57,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "SSG",
       "name": "ProShares UltraShort Semiconduc",
       "aum_M": 40.9,
       "shares_M": null,
-      "price": 16.07,
-      "as_of": "2026-07-30"
+      "price": 13.99,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "SSO",
       "name": "ProShares Ultra S&P500",
       "aum_M": 7968.9,
       "shares_M": null,
-      "price": 64.01,
-      "as_of": "2026-07-30"
+      "price": 66.1,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "UPRO",
       "name": "ProShares UltraPro S&P 500",
       "aum_M": 5326.3,
       "shares_M": null,
-      "price": 131.01,
-      "as_of": "2026-07-30"
+      "price": 137.57,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "SPXU",
       "name": "ProShares UltraPro Short S&P500",
       "aum_M": 426.7,
       "shares_M": null,
-      "price": 39.98,
-      "as_of": "2026-07-30"
+      "price": 38.01,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "QLD",
       "name": "ProShares Ultra QQQ",
       "aum_M": 14575.9,
       "shares_M": null,
-      "price": 77.58,
-      "as_of": "2026-07-30"
+      "price": 82.68,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "TQQQ",
       "name": "ProShares UltraPro QQQ",
       "aum_M": 38968.8,
       "shares_M": null,
-      "price": 57.75,
-      "as_of": "2026-07-30"
+      "price": 63.3,
+      "as_of": "2026-07-31"
     },
     {
       "ticker": "SQQQ",
       "name": "ProShares UltraPro Short QQQ",
       "aum_M": 1985.1,
       "shares_M": null,
-      "price": 49.44,
-      "as_of": "2026-07-30"
+      "price": 44.62,
+      "as_of": "2026-07-31"
     }
   ],
   "heuristic_flags": [],
