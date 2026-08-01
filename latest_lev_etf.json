@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-31 22:55 UTC",
+  "updated_utc": "2026-08-01 22:59 UTC",
   "source": "Yahoo Finance (yfinance)",
   "layer": "B-leverage",
   "total_aum_B": 105.3,
@@ -11,7 +11,7 @@
       "aum_M": 31596.0,
       "shares_M": null,
       "price": 114.72,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "SOXS",
@@ -19,7 +19,7 @@
       "aum_M": 1262.5,
       "shares_M": null,
       "price": 53.92,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "USD",
@@ -27,7 +27,7 @@
       "aum_M": 3149.4,
       "shares_M": null,
       "price": 77.57,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "SSG",
@@ -35,7 +35,7 @@
       "aum_M": 40.9,
       "shares_M": null,
       "price": 13.99,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "SSO",
@@ -43,7 +43,7 @@
       "aum_M": 7968.9,
       "shares_M": null,
       "price": 66.1,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "UPRO",
@@ -51,7 +51,7 @@
       "aum_M": 5326.3,
       "shares_M": null,
       "price": 137.57,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "SPXU",
@@ -59,7 +59,7 @@
       "aum_M": 426.7,
       "shares_M": null,
       "price": 38.01,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "QLD",
@@ -67,7 +67,7 @@
       "aum_M": 14575.9,
       "shares_M": null,
       "price": 82.68,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "TQQQ",
@@ -75,7 +75,7 @@
       "aum_M": 38968.8,
       "shares_M": null,
       "price": 63.3,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     },
     {
       "ticker": "SQQQ",
@@ -83,7 +83,7 @@
       "aum_M": 1985.1,
       "shares_M": null,
       "price": 44.62,
-      "as_of": "2026-07-31"
+      "as_of": "2026-08-01"
     }
   ],
   "heuristic_flags": [],
