@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-05 22:53 UTC",
+  "updated_utc": "2026-08-07 01:34 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -25,15 +25,15 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-08-04",
-      "value": 2.73,
-      "chg_5d": -0.11,
-      "chg_20d": 0.06
+      "as_of": "2026-08-05",
+      "value": 2.75,
+      "chg_5d": -0.12,
+      "chg_20d": 0.05
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-08-04",
+      "as_of": "2026-08-05",
       "value": 0.78,
       "chg_5d": -0.03,
       "chg_20d": 0.02
@@ -41,10 +41,10 @@
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-08-04",
-      "value": 16.5,
-      "chg_5d": -1.71,
-      "chg_20d": 0.37
+      "as_of": "2026-08-05",
+      "value": 15.81,
+      "chg_5d": -4.85,
+      "chg_20d": -1.09
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -65,10 +65,10 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-08-05",
-      "value": 0.45,
-      "chg_5d": 0.0,
-      "chg_20d": 0.1
+      "as_of": "2026-08-06",
+      "value": 0.44,
+      "chg_5d": -0.01,
+      "chg_20d": 0.06
     }
   },
   "read_hints": {
@@ -84,21 +84,21 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-07-29",
-      "value_bp": 18.0,
-      "chg_5d_bp": 12.0,
-      "chg_20d_bp": 10.0
+      "as_of": "2026-08-05",
+      "value_bp": 11.0,
+      "chg_5d_bp": 8.0,
+      "chg_20d_bp": -2.0
     },
     "nonfin_cp_bill_bp": {
-      "as_of": "2026-08-04",
-      "value_bp": 2.0,
-      "chg_5d_bp": 3.0,
-      "chg_20d_bp": -9.0
+      "as_of": "2026-08-05",
+      "value_bp": 3.0,
+      "chg_5d_bp": -2.0,
+      "chg_20d_bp": -4.0
     },
     "foreign_official_rrp": {
-      "as_of": "2026-07-29",
-      "value_B": 334.5,
-      "chg_4w_B": -3.0
+      "as_of": "2026-08-05",
+      "value_B": 317.7,
+      "chg_4w_B": -27.4
     }
   },
   "heuristic_flags": [
