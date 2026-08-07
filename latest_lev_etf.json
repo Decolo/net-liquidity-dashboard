@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-07 01:34 UTC",
+  "updated_utc": "2026-08-07 22:29 UTC",
   "source": "Yahoo Finance (yfinance)",
   "layer": "B-leverage",
   "total_aum_B": 84.3,
@@ -10,7 +10,7 @@
       "name": "Direxion Daily Semiconductor Bu",
       "aum_M": 19438.2,
       "shares_M": null,
-      "price": 132.07,
+      "price": 132.33,
       "as_of": "2026-08-07"
     },
     {
@@ -18,7 +18,7 @@
       "name": "Direxion Daily Semiconductor Be",
       "aum_M": 1363.7,
       "shares_M": null,
-      "price": 45.08,
+      "price": 44.76,
       "as_of": "2026-08-07"
     },
     {
@@ -26,7 +26,7 @@
       "name": "ProShares Ultra Semiconductors",
       "aum_M": 2472.9,
       "shares_M": null,
-      "price": 90.62,
+      "price": 90.54,
       "as_of": "2026-08-07"
     },
     {
@@ -34,7 +34,7 @@
       "name": "ProShares UltraShort Semiconduc",
       "aum_M": 44.7,
       "shares_M": null,
-      "price": 11.86,
+      "price": 11.95,
       "as_of": "2026-08-07"
     },
     {
@@ -42,7 +42,7 @@
       "name": "ProShares Ultra S&P500",
       "aum_M": 7808.7,
       "shares_M": null,
-      "price": 71.12,
+      "price": 70.88,
       "as_of": "2026-08-07"
     },
     {
@@ -50,7 +50,7 @@
       "name": "ProShares UltraPro S&P 500",
       "aum_M": 5150.2,
       "shares_M": null,
-      "price": 153.24,
+      "price": 152.43,
       "as_of": "2026-08-07"
     },
     {
@@ -58,7 +58,7 @@
       "name": "ProShares UltraPro Short S&P500",
       "aum_M": 432.2,
       "shares_M": null,
-      "price": 33.97,
+      "price": 34.16,
       "as_of": "2026-08-07"
     },
     {
@@ -66,7 +66,7 @@
       "name": "ProShares Ultra QQQ",
       "aum_M": 12760.3,
       "shares_M": null,
-      "price": 90.8,
+      "price": 90.13,
       "as_of": "2026-08-07"
     },
     {
@@ -74,7 +74,7 @@
       "name": "ProShares UltraPro QQQ",
       "aum_M": 32831.2,
       "shares_M": null,
-      "price": 72.84,
+      "price": 72.03,
       "as_of": "2026-08-07"
     },
     {
@@ -82,7 +82,7 @@
       "name": "ProShares UltraPro Short QQQ",
       "aum_M": 1997.2,
       "shares_M": null,
-      "price": 38.29,
+      "price": 38.7,
       "as_of": "2026-08-07"
     }
   ],
