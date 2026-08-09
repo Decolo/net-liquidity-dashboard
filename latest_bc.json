@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-09 07:33 UTC",
+  "updated_utc": "2026-08-09 07:41 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -11,6 +11,9 @@
       "T10Y2Y",
       "T10YIE",
       "CPILFESL",
+      "DEXKOUS",
+      "PAYEMS",
+      "UNRATE",
       "DCPF3M",
       "DCPN3M",
       "DTB3",
@@ -89,6 +92,34 @@
       "chg_20d": 15.333,
       "frequency": "monthly",
       "yoy_pct": 2.81
+    },
+    "DEXKOUS": {
+      "name": "USD/KRW",
+      "layer": "E-fx",
+      "as_of": "2026-07-31",
+      "value": 1436.81,
+      "chg_5d": -23.95,
+      "chg_20d": -101.24
+    },
+    "PAYEMS": {
+      "name": "Nonfarm payrolls",
+      "layer": "E-labor",
+      "as_of": "2026-07-01",
+      "value": 158858.0,
+      "chg_5d": 422.0,
+      "chg_20d": 779.0,
+      "frequency": "monthly",
+      "mom_chg_k": -23.0
+    },
+    "UNRATE": {
+      "name": "Unemployment rate",
+      "layer": "E-labor",
+      "as_of": "2026-07-01",
+      "value": 4.1,
+      "chg_5d": -0.3,
+      "chg_20d": 0.0,
+      "frequency": "monthly",
+      "mom_chg_pp": -0.1
     }
   },
   "read_hints": {
@@ -100,6 +131,9 @@
     "T10Y2Y": "Curve; context for risk appetite / growth pricing",
     "T10YIE": "10Y breakeven inflation = market inflation expectations; rising = long-end pressure",
     "CPILFESL": "Core CPI (monthly); use yoy_pct \u2014 the 20-50bps memory/software contribution shows up here",
+    "DEXKOUS": "USD/KRW; won strength alongside yen = coordinated intervention wave",
+    "PAYEMS": "Nonfarm payrolls (monthly); mom_chg_k \u2014 July 2026 went negative (-23k)",
+    "UNRATE": "Unemployment rate (monthly); mom_chg_pp \u2014 watch payrolls vs household divergence",
     "fin_cp_bill_bp": "Financial CP \u2212 bill = TED successor; widening = bank funding premium up",
     "nonfin_cp_bill_bp": "Corporate short-term funding premium",
     "WLRRAFOIAL": "Foreign official RRP; jump = foreign CBs hoarding dollars at Fed"
