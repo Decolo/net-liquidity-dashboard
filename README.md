@@ -51,6 +51,23 @@ python update.py
 
 Outputs land in `charts/` and `latest.json`.
 
+## Leveraged ETF AUM monitor (`update_lev_etf.py`)
+
+Daily snapshot of leveraged ETF AUM (semiconductor / broad / tech, bull + bear) —
+a retail-speculative positioning proxy used to gauge momentum-unwind progress.
+
+- **Primary data**: Yahoo `info.totalAssets` per ETF. Caveat: Yahoo refreshes this
+  field with a **lag of days**, so the JSON carries a freshness ledger:
+  - `data_as_of` — the date the current AUM value was first observed
+  - `stale_days` — consecutive days the total has been unchanged
+  - `heuristic_flags: aum_stale_Nd` — fires once `stale_days >= 2`
+  Read AUM as of `data_as_of`, not `updated_utc` (which is only the fetch time).
+- **History**: every run appends to `data/lev_etf_history.jsonl` (one row per
+  date; same-day reruns replace that day's row) so the AUM trajectory survives
+  without git archaeology. `semi_aum_B` is the semiconductor subset
+  (SOXL/SOXS/USD/SSG) aggregate used in market reviews.
+- Chart: `charts/lev_etf.png`.
+
 ## Static site & machine-readable brief
 
 `python build_site.py` assembles a deployable static site into `site/`:

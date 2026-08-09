@@ -57,33 +57,58 @@ TICKERS = [
 # ── Data fetching ───────────────────────────────────────────────────────────
 
 def fetch_aum(ticker: str) -> dict | None:
-    """Return {ticker, name, aum_M, price, as_of} or None on failure."""
+    """Return ETF AUM snapshot or None on failure.
+
+    AUM = Yahoo ``info.totalAssets`` (the fund's reported AUM). Known caveat:
+    Yahoo refreshes this field with a lag (days), so the monitor pairs it with
+    a LIVE price (fast_info.last_price) and a freshness ledger in the history
+    file — when AUM stops changing while prices move, ``stale_days`` and the
+    ``aum_stale_*`` flag surface it instead of pretending the data is fresh.
+    """
     try:
         t = yf.Ticker(ticker)
-        info = t.info
-        if not info or info.get("totalAssets") is None:
-            # fast_info.marketCap is a fallback (market cap ≈ AUM for ETFs)
-            fi = t.fast_info
-            aum = getattr(fi, "marketCap", None)
-            shares = getattr(fi, "shares", None)
-            price = getattr(fi, "lastPrice", None)
-        else:
-            aum = info.get("totalAssets")
-            shares = info.get("sharesOutstanding")
-            price = info.get("previousClose") or info.get("currentPrice")
-        if aum is None:
+        info = t.info or {}
+        total = info.get("totalAssets")
+        if not total:
             return None
-        name = info.get("shortName") or info.get("longName") or ticker
+        try:
+            price = getattr(t.fast_info, "last_price", None) or info.get("regularMarketPrice")
+        except Exception:
+            price = info.get("regularMarketPrice")
         return {
             "ticker": ticker,
-            "name": name,
-            "aum_M": round(aum / 1_000_000, 1),  # convert to millions
-            "shares_M": round(shares / 1_000_000, 1) if shares else None,
+            "name": info.get("shortName") or info.get("longName") or ticker,
+            "aum_M": round(total / 1_000_000, 1),
+            "aum_source": "yahoo_totalAssets",
             "price": round(price, 2) if price else None,
-            "as_of": datetime.now().strftime("%Y-%m-%d"),
+            "nav_price": round(info["navPrice"], 2) if info.get("navPrice") else None,
+            "as_of": datetime.now().strftime("%Y-%m-%d"),   # snapshot date
         }
     except Exception:
         return None
+
+
+# ── History ledger (freshness + trajectory) ────────────────────────────────
+
+HISTORY_FILE = ROOT / "data" / "lev_etf_history.jsonl"
+
+
+def load_history() -> list[dict]:
+    if not HISTORY_FILE.exists():
+        return []
+    return [json.loads(l) for l in
+            HISTORY_FILE.read_text(encoding="utf-8").splitlines() if l.strip()]
+
+
+def stale_days_for(rows: list[dict], current_total: float) -> int:
+    """Days since the current total AUM value was first observed."""
+    n = 0
+    for r in reversed(rows):
+        if abs((r.get("total_aum_B") or 0) - current_total) < 0.05:
+            n += 1
+        else:
+            break
+    return n
 
 
 # ── Chart ───────────────────────────────────────────────────────────────────
@@ -137,35 +162,71 @@ def plot_lev_etf(etfs: list[dict]) -> Path | None:
 
 # ── Output ──────────────────────────────────────────────────────────────────
 
-def write_status(etfs: list[dict], total_aum_B: float) -> dict:
+def write_status(etfs: list[dict], total_aum_B: float, stale_days: int) -> dict:
     """Write latest_lev_etf.json and return the payload."""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    today = now[:10]
+
+    semi_t = ("SOXL", "SOXS", "USD", "SSG")
+    semi_B = round(sum(e["aum_M"] for e in etfs if e["ticker"] in semi_t) / 1000, 2)
+
+    flags: list[str] = []
+    if total_aum_B < 50:
+        flags.append("lev_etf_aum_low")
+    if stale_days >= 2:
+        flags.append(f"aum_stale_{stale_days}d")
+
     payload = {
-        "updated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        "source": "Yahoo Finance (yfinance)",
+        "updated_utc": now,                 # when this snapshot was produced
+        "data_as_of": (load_history()[-stale_days]["date"] if stale_days > 0 else today),
+        "stale_days": stale_days,
+        "source": "Yahoo Finance (yfinance) — info.totalAssets",
         "layer": "B-leverage",
         "total_aum_B": round(total_aum_B, 2),
+        "semi_aum_B": semi_B,
         "etf_count": len(etfs),
         "etfs": etfs,
-        "heuristic_flags": [],
+        "heuristic_flags": flags,
         "read_hint": (
             "Leveraged ETF AUM shrinking = retail/speculative money leaving. "
-            "Rapid drawdown (>20% in 30d) signals forced deleveraging risk."
+            "Rapid drawdown (>20% in 30d) signals forced deleveraging risk. "
+            "stale_days > 0 means Yahoo's totalAssets has not refreshed — treat "
+            "AUM as of data_as_of, not today. Flag 'aum_stale_Nd' fires at N>=2."
         ),
         "disclaimer": (
-            "AUM data from Yahoo Finance (yfinance). May differ from issuer-reported "
-            "NAV/AUM due to timing differences. Not a trading signal."
+            "AUM from Yahoo Finance (yfinance) info.totalAssets, which refreshes "
+            "with a lag of days. stale_days shows how old the figure is. "
+            "Not a trading signal."
         ),
     }
-
-    # Simple heuristic: flag if total AUM seems anomalously low
-    # (thresholds TBD after observing live data for a few weeks)
-    if total_aum_B < 50:
-        payload["heuristic_flags"].append("lev_etf_aum_low")
-
     ROOT.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
                         encoding="utf-8")
     return payload
+
+
+def append_history(payload: dict) -> None:
+    """Append one row per run date; same-day reruns replace that day's row."""
+    if not payload.get("etfs"):
+        return
+    by = {e["ticker"]: e for e in payload["etfs"]}
+    row = {
+        "date": payload["updated_utc"][:10],
+        "total_aum_B": payload["total_aum_B"],
+        "semi_aum_B": payload.get("semi_aum_B"),
+        "soxl_aum_B": round(by["SOXL"]["aum_M"] / 1000, 3) if "SOXL" in by else None,
+        "tqqq_aum_B": round(by["TQQQ"]["aum_M"] / 1000, 3) if "TQQQ" in by else None,
+        "stale_days": payload.get("stale_days"),
+        "flags": payload.get("heuristic_flags") or [],
+    }
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    lines = (HISTORY_FILE.read_text(encoding="utf-8").splitlines()
+             if HISTORY_FILE.exists() else [])
+    if lines and json.loads(lines[-1]).get("date") == row["date"]:
+        lines.pop()  # replace today's row (idempotent reruns)
+    lines.append(json.dumps(row, ensure_ascii=False))
+    HISTORY_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"History: {len(lines)} day(s) in {HISTORY_FILE.relative_to(ROOT)}")
 
 
 # ── Main ────────────────────────────────────────────────────────────────────
@@ -177,7 +238,8 @@ def main() -> int:
         d = fetch_aum(tkr)
         if d:
             etfs.append(d)
-            print(f"  {tkr:6s}  AUM ${d['aum_M']:>10,.1f}M  ({d.get('name', '')})")
+            px = f"px ${d['price']:,.2f}" if d.get("price") else "px n/a"
+            print(f"  {tkr:6s}  AUM ${d['aum_M']:>10,.1f}M  {px}  {d.get('name', '')}")
         else:
             print(f"  {tkr:6s}  SKIP — data unavailable")
 
@@ -186,13 +248,17 @@ def main() -> int:
         return 1
 
     total_aum_B = sum(e["aum_M"] for e in etfs) / 1000
-    print(f"\nTotal AUM: ${total_aum_B:.1f}B across {len(etfs)} ETFs")
+    rows = load_history()
+    stale = stale_days_for(rows, total_aum_B)
+    print(f"\nTotal AUM: ${total_aum_B:.1f}B across {len(etfs)} ETFs"
+          + (f"  [stale: value unchanged for {stale} day(s)]" if stale else ""))
 
     chart_path = plot_lev_etf(etfs)
     if chart_path:
         print(f"  wrote {chart_path}")
 
-    payload = write_status(etfs, total_aum_B)
+    payload = write_status(etfs, total_aum_B, stale)
+    append_history(payload)
     print(f"Wrote {OUT_JSON}")
     flags = payload.get("heuristic_flags") or []
     print(f"Heuristic flags: {'(none)' if not flags else ', '.join(flags)}")
