@@ -17,6 +17,11 @@ D (inflation slice):
   - Core CPI (CPILFESL, monthly; YoY in series.yoy_pct)
   - 10Y breakeven inflation (T10YIE, daily) — market inflation expectations
 
+E (FX & labor slice):
+  - USD/KRW (DEXKOUS, daily) — 'Korea similar' check for intervention waves
+  - Nonfarm payrolls (PAYEMS, monthly; mom_chg_k)
+  - Unemployment rate (UNRATE, monthly; mom_chg_pp)
+
 NOT included (need other sources / manual):
   options gamma, CTA positioning, order-book depth,
   true cross-currency basis (paid data only).
@@ -57,6 +62,9 @@ SERIES = {
     "T10Y2Y": {"name": "10Y-2Y curve", "unit": "pct", "layer": "B-curve"},
     "T10YIE": {"name": "10Y breakeven inflation", "unit": "pct", "layer": "D-inflation"},
     "CPILFESL": {"name": "Core CPI (ex food & energy)", "unit": "index", "layer": "D-inflation"},
+    "DEXKOUS": {"name": "USD/KRW", "unit": "fx", "layer": "E-fx"},
+    "PAYEMS": {"name": "Nonfarm payrolls", "unit": "thousands", "layer": "E-labor"},
+    "UNRATE": {"name": "Unemployment rate", "unit": "pct", "layer": "E-labor"},
 }
 
 # Offshore/short-term dollar funding stress (B-funding slice).
@@ -232,6 +240,9 @@ def write_status(
             "T10Y2Y": "Curve; context for risk appetite / growth pricing",
             "T10YIE": "10Y breakeven inflation = market inflation expectations; rising = long-end pressure",
             "CPILFESL": "Core CPI (monthly); use yoy_pct — the 20-50bps memory/software contribution shows up here",
+            "DEXKOUS": "USD/KRW; won strength alongside yen = coordinated intervention wave",
+            "PAYEMS": "Nonfarm payrolls (monthly); mom_chg_k — July 2026 went negative (-23k)",
+            "UNRATE": "Unemployment rate (monthly); mom_chg_pp — watch payrolls vs household divergence",
             "fin_cp_bill_bp": "Financial CP − bill = TED successor; widening = bank funding premium up",
             "nonfin_cp_bill_bp": "Corporate short-term funding premium",
             "WLRRAFOIAL": "Foreign official RRP; jump = foreign CBs hoarding dollars at Fed",
@@ -250,13 +261,22 @@ def write_status(
             "chg_5d": _chg(s, 5),
             "chg_20d": _chg(s, 20),
         }
-        if code == "CPILFESL":
-            # monthly frequency: chg_5d/20d are observation-based (~months);
-            # the standard read is YoY % change
+        # monthly frequency: chg_5d/20d are observation-based (~months),
+        # so each monthly series gets its own standard read
+        monthly_extra = {
+            "CPILFESL": lambda s: (
+                {"yoy_pct": round((float(s.iloc[-1]) / float(s.iloc[-13]) - 1) * 100, 2)}
+                if len(s) >= 13 else {}),
+            "PAYEMS": lambda s: (
+                {"mom_chg_k": round(float(s.iloc[-1]) - float(s.iloc[-2]), 0)}
+                if len(s) >= 2 else {}),
+            "UNRATE": lambda s: (
+                {"mom_chg_pp": round(float(s.iloc[-1]) - float(s.iloc[-2]), 2)}
+                if len(s) >= 2 else {}),
+        }
+        if code in monthly_extra:
             block["frequency"] = "monthly"
-            if len(s) >= 13:
-                block["yoy_pct"] = round(
-                    (float(s.iloc[-1]) / float(s.iloc[-13]) - 1) * 100, 2)
+            block.update(monthly_extra[code](s))
         payload["series"][code] = block
 
     # Funding block: CP−bill spreads + foreign official repo pool

@@ -181,6 +181,9 @@ def build_brief(snap: dict, history: list) -> dict:
             "lev_etf_aum_B": summary.get("lev_etf_total_aum_B"),
             "cpi_core_yoy_pct": summary.get("cpi_core_yoy_pct"),
             "t10yie_pct": summary.get("t10yie_pct"),
+            "usdkrw": summary.get("usdkrw"),
+            "payrolls_mom_chg_k": summary.get("payrolls_mom_chg_k"),
+            "unrate": summary.get("unrate"),
         },
     }
 

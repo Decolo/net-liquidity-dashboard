@@ -114,6 +114,13 @@ def build_snapshot() -> Dict[str, Any]:
             else None
         ),
         "t10yie_pct": s("T10YIE"),
+        "usdkrw": s("DEXKOUS"),
+        "payrolls_mom_chg_k": (
+            ((layers.get("bc") or {}).get("series") or {}).get("PAYEMS") or {}
+        ).get("mom_chg_k")
+        if isinstance(layers.get("bc"), dict)
+        else None,
+        "unrate": s("UNRATE"),
         "cpi_core_yoy_pct": (
             ((layers.get("bc") or {}).get("series") or {}).get("CPILFESL") or {}
         ).get("yoy_pct")
