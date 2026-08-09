@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-07 22:29 UTC",
+  "updated_utc": "2026-08-09 07:08 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,7 +49,7 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 50,
+  "count_in_window": 46,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
