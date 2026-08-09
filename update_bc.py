@@ -13,6 +13,10 @@ B (auto slice):
 C (auto slice):
   - VIX (VIXCLS)
 
+D (inflation slice):
+  - Core CPI (CPILFESL, monthly; YoY in series.yoy_pct)
+  - 10Y breakeven inflation (T10YIE, daily) — market inflation expectations
+
 NOT included (need other sources / manual):
   options gamma, CTA positioning, order-book depth,
   true cross-currency basis (paid data only).
@@ -51,6 +55,8 @@ SERIES = {
     "DEXJPUS": {"name": "USD/JPY", "unit": "fx", "layer": "B-carry"},
     "DTWEXBGS": {"name": "Broad USD (DTWEXBGS)", "unit": "index", "layer": "B-dollar"},
     "T10Y2Y": {"name": "10Y-2Y curve", "unit": "pct", "layer": "B-curve"},
+    "T10YIE": {"name": "10Y breakeven inflation", "unit": "pct", "layer": "D-inflation"},
+    "CPILFESL": {"name": "Core CPI (ex food & energy)", "unit": "index", "layer": "D-inflation"},
 }
 
 # Offshore/short-term dollar funding stress (B-funding slice).
@@ -224,6 +230,8 @@ def write_status(
             "DEXJPUS": "JPY strength (USDJPY down) = yen-carry stress proxy",
             "DTWEXBGS": "Broad dollar; NOT bank reserves (see A-layer)",
             "T10Y2Y": "Curve; context for risk appetite / growth pricing",
+            "T10YIE": "10Y breakeven inflation = market inflation expectations; rising = long-end pressure",
+            "CPILFESL": "Core CPI (monthly); use yoy_pct — the 20-50bps memory/software contribution shows up here",
             "fin_cp_bill_bp": "Financial CP − bill = TED successor; widening = bank funding premium up",
             "nonfin_cp_bill_bp": "Corporate short-term funding premium",
             "WLRRAFOIAL": "Foreign official RRP; jump = foreign CBs hoarding dollars at Fed",
@@ -234,7 +242,7 @@ def write_status(
         s = s.dropna()
         if s.empty:
             continue
-        payload["series"][code] = {
+        block = {
             "name": SERIES[code]["name"],
             "layer": SERIES[code]["layer"],
             "as_of": s.index[-1].strftime("%Y-%m-%d"),
@@ -242,6 +250,14 @@ def write_status(
             "chg_5d": _chg(s, 5),
             "chg_20d": _chg(s, 20),
         }
+        if code == "CPILFESL":
+            # monthly frequency: chg_5d/20d are observation-based (~months);
+            # the standard read is YoY % change
+            block["frequency"] = "monthly"
+            if len(s) >= 13:
+                block["yoy_pct"] = round(
+                    (float(s.iloc[-1]) / float(s.iloc[-13]) - 1) * 100, 2)
+        payload["series"][code] = block
 
     # Funding block: CP−bill spreads + foreign official repo pool
     fund_block: dict = {}

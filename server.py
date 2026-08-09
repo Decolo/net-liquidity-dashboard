@@ -113,6 +113,12 @@ def build_snapshot() -> Dict[str, Any]:
             if isinstance(layers.get("breadth"), dict)
             else None
         ),
+        "t10yie_pct": s("T10YIE"),
+        "cpi_core_yoy_pct": (
+            ((layers.get("bc") or {}).get("series") or {}).get("CPILFESL") or {}
+        ).get("yoy_pct")
+        if isinstance(layers.get("bc"), dict)
+        else None,
         "lev_etf_total_aum_B": (
             (layers.get("lev_etf") or {}).get("total_aum_B")
             if isinstance(layers.get("lev_etf"), dict)
