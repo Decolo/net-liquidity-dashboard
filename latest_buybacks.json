@@ -1,13 +1,13 @@
 {
-  "updated_utc": "2026-08-19 22:19 UTC",
+  "updated_utc": "2026-08-20 22:20 UTC",
   "source": "yfinance (PKW, SPY) + S&P DJI quarterly (manual CSV)",
   "layer": "B-buybacks (proxy)",
   "daily_proxy": {
-    "as_of": "2026-08-19",
-    "pkw_spy_ratio_norm": 0.8993,
+    "as_of": "2026-08-20",
+    "pkw_spy_ratio_norm": 0.9006,
     "above_200d_ma": true,
-    "chg_20d_pct": 0.93,
-    "chg_60d_pct": 7.5
+    "chg_20d_pct": 1.42,
+    "chg_60d_pct": 6.8
   },
   "quarterly_sp500": {
     "latest_quarter": "2025-Q1",
