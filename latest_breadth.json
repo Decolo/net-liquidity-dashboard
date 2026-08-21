@@ -1,23 +1,33 @@
 {
-  "updated_utc": "2026-08-20 22:20 UTC",
+  "updated_utc": "2026-08-21 22:18 UTC",
   "source": "yfinance (SPDR sector ETFs + SPY/QQQ/IWM/DIA)",
   "layer": "C-market breadth (proxy)",
-  "as_of": "2026-08-20",
+  "as_of": "2026-08-21",
   "sectors": {
     "count": 11,
-    "advancing_today": 2,
-    "declining_today": 9,
+    "advancing_today": 8,
+    "declining_today": 2,
     "advancing_names": [
-      "XLE",
-      "XLRE"
+      "XLK",
+      "XLF",
+      "XLV",
+      "XLY",
+      "XLP",
+      "XLI",
+      "XLB",
+      "XLC"
     ],
-    "pct_above_50d_ma": 45.5,
+    "pct_above_50d_ma": 81.8,
     "above_50d_names": [
       "XLK",
       "XLF",
       "XLV",
+      "XLY",
       "XLP",
-      "XLE"
+      "XLE",
+      "XLB",
+      "XLRE",
+      "XLC"
     ]
   },
   "spy": {
@@ -25,13 +35,13 @@
     "above_200d_ma": true
   },
   "size_style_20d_pct": {
-    "SPY": 3.31,
-    "QQQ": 2.74,
-    "IWM": 1.91,
-    "DIA": 2.18
+    "SPY": 3.63,
+    "QQQ": 4.27,
+    "IWM": 3.02,
+    "DIA": 2.59
   },
   "heuristic_flags": [
-    "narrow_leadership"
+    "breadth_strong_ge_80pct"
   ],
   "read_hint": "Sector participation proxies A/D breadth without scanning constituents. narrow_leadership = index held up by few sectors \u2014 fragile tape.",
   "disclaimer": "Sector-ETF breadth is a coarse proxy for constituent-level A/D. Not a trading signal."
