@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-25 22:20 UTC",
+  "updated_utc": "2026-08-27 02:47 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-08-24",
-      "value": 2.69,
-      "chg_5d": -0.01,
-      "chg_20d": -0.12
+      "as_of": "2026-08-25",
+      "value": 2.7,
+      "chg_5d": -0.05,
+      "chg_20d": -0.14
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-08-24",
+      "as_of": "2026-08-25",
       "value": 0.81,
-      "chg_5d": 0.0,
+      "chg_5d": -0.01,
       "chg_20d": 0.0
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-08-24",
-      "value": 15.85,
-      "chg_5d": 0.66,
-      "chg_20d": -2.82
+      "as_of": "2026-08-25",
+      "value": 15.45,
+      "chg_5d": -0.39,
+      "chg_20d": -2.76
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-08-25",
+      "as_of": "2026-08-26",
       "value": 0.47,
-      "chg_5d": -0.05,
-      "chg_20d": 0.12
+      "chg_5d": 0.01,
+      "chg_20d": 0.02
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-08-25",
+      "as_of": "2026-08-26",
       "value": 2.32,
       "chg_5d": 0.02,
-      "chg_20d": 0.12
+      "chg_20d": 0.06
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
