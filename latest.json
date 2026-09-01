@@ -5,7 +5,7 @@
   "tga_T": 0.951,
   "rrp_T": 0.001,
   "delta_30d_T": -0.207,
-  "updated_utc": "2026-09-01 23:44 UTC",
+  "updated_utc": "2026-09-01 23:54 UTC",
   "notes": {
     "net_liquidity": "Market proxy: WALCL - TGA - RRP (not official Fed series)",
     "units": "WALCL/TGA FRED millions; RRP billions; WRESBAL millions \u2192 T as noted",

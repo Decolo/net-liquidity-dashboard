@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-01 23:44 UTC",
+  "updated_utc": "2026-09-01 23:54 UTC",
   "source": "yfinance (PKW, SPY) + S&P DJI quarterly (manual CSV)",
   "layer": "B-buybacks (proxy)",
   "daily_proxy": {
