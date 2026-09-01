@@ -26,3 +26,4 @@
 {"date": "2026-08-27", "ts_utc": "2026-08-28 05:54 UTC", "net_liquidity_T": 5.78, "delta_30d_T": -0.207, "vix": 15.21, "hy_oas": 2.67, "ig_oas": 0.8, "sofr_iorb_bp": -1.0, "rating": "yellow"}
 {"date": "2026-08-28", "ts_utc": "2026-08-29 03:27 UTC", "net_liquidity_T": 5.78, "delta_30d_T": -0.207, "vix": 14.51, "hy_oas": 2.63, "ig_oas": 0.79, "sofr_iorb_bp": -1.0, "rating": "yellow"}
 {"date": "2026-08-31", "ts_utc": "2026-09-01 01:02 UTC", "net_liquidity_T": 5.773, "delta_30d_T": -0.213, "vix": 14.43, "hy_oas": 2.6, "ig_oas": 0.79, "sofr_iorb_bp": 0.0, "rating": "yellow"}
+{"date": "2026-09-01", "ts_utc": "2026-09-01 23:44 UTC", "net_liquidity_T": 5.779, "delta_30d_T": -0.207, "vix": 14.92, "hy_oas": 2.63, "ig_oas": 0.8, "sofr_iorb_bp": 3.0, "rating": "yellow"}
