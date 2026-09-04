@@ -17,3 +17,4 @@
 {"date": "2026-09-01", "total_aum_B": 84.3, "semi_aum_B": 23.32, "soxl_aum_B": 19.438, "tqqq_aum_B": 32.831, "stale_days": 17, "flags": ["aum_stale_17d"]}
 {"date": "2026-09-02", "total_aum_B": 84.3, "semi_aum_B": 23.32, "soxl_aum_B": 19.438, "tqqq_aum_B": 32.831, "stale_days": 17, "flags": ["aum_stale_17d"]}
 {"date": "2026-09-03", "total_aum_B": 84.3, "semi_aum_B": 23.32, "soxl_aum_B": 19.438, "tqqq_aum_B": 32.831, "stale_days": 18, "flags": ["aum_stale_18d"]}
+{"date": "2026-09-04", "total_aum_B": 90.21, "semi_aum_B": 23.42, "soxl_aum_B": 19.312, "tqqq_aum_B": 36.114, "stale_days": 0, "flags": []}
