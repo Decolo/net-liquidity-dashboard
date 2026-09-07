@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-09-04 23:38 UTC",
+  "updated_utc": "2026-09-07 23:54 UTC",
   "data_as_of": "2026-09-04",
-  "stale_days": 0,
+  "stale_days": 1,
   "source": "Yahoo Finance (yfinance) — info.totalAssets",
   "layer": "B-leverage",
   "total_aum_B": 90.21,
@@ -14,8 +14,8 @@
       "aum_M": 19311.8,
       "aum_source": "yahoo_totalAssets",
       "price": 117.28,
-      "nav_price": 106.37,
-      "as_of": "2026-09-04"
+      "nav_price": 117.87,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "SOXS",
@@ -23,8 +23,8 @@
       "aum_M": 1403.3,
       "aum_source": "yahoo_totalAssets",
       "price": 46.34,
-      "nav_price": 51.81,
-      "as_of": "2026-09-04"
+      "nav_price": 46.28,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "USD",
@@ -32,8 +32,8 @@
       "aum_M": 2668.7,
       "aum_source": "yahoo_totalAssets",
       "price": 88.8,
-      "nav_price": 84.27,
-      "as_of": "2026-09-04"
+      "nav_price": 88.9,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "SSG",
@@ -41,8 +41,8 @@
       "aum_M": 37.8,
       "aum_source": "yahoo_totalAssets",
       "price": 11.74,
-      "nav_price": 12.38,
-      "as_of": "2026-09-04"
+      "nav_price": 11.72,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "SSO",
@@ -50,8 +50,8 @@
       "aum_M": 8813.3,
       "aum_source": "yahoo_totalAssets",
       "price": 70.8,
-      "nav_price": 69.91,
-      "as_of": "2026-09-04"
+      "nav_price": 70.82,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "UPRO",
@@ -59,8 +59,8 @@
       "aum_M": 5447.6,
       "aum_source": "yahoo_totalAssets",
       "price": 151.88,
-      "nav_price": 149.06,
-      "as_of": "2026-09-04"
+      "nav_price": 151.95,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "SPXU",
@@ -68,8 +68,8 @@
       "aum_M": 380.5,
       "aum_source": "yahoo_totalAssets",
       "price": 34.25,
-      "nav_price": 34.91,
-      "as_of": "2026-09-04"
+      "nav_price": 34.24,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "QLD",
@@ -77,8 +77,8 @@
       "aum_M": 14098.7,
       "aum_source": "yahoo_totalAssets",
       "price": 90.68,
-      "nav_price": 88.31,
-      "as_of": "2026-09-04"
+      "nav_price": 90.71,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "TQQQ",
@@ -86,8 +86,8 @@
       "aum_M": 36114.2,
       "aum_source": "yahoo_totalAssets",
       "price": 72.37,
-      "nav_price": 69.6,
-      "as_of": "2026-09-04"
+      "nav_price": 72.43,
+      "as_of": "2026-09-07"
     },
     {
       "ticker": "SQQQ",
@@ -95,8 +95,8 @@
       "aum_M": 1935.7,
       "aum_source": "yahoo_totalAssets",
       "price": 38.18,
-      "nav_price": 39.73,
-      "as_of": "2026-09-04"
+      "nav_price": 38.16,
+      "as_of": "2026-09-07"
     }
   ],
   "heuristic_flags": [],
