@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-08 00:02 UTC",
+  "updated_utc": "2026-09-08 23:47 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,58 +30,58 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-03",
-      "value": 2.65,
-      "chg_5d": 0.02,
-      "chg_20d": -0.06
+      "as_of": "2026-09-07",
+      "value": 2.68,
+      "chg_5d": 0.05,
+      "chg_20d": -0.02
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-07",
       "value": 0.81,
-      "chg_5d": 0.02,
+      "chg_5d": 0.01,
       "chg_20d": 0.03
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-09-03",
-      "value": 14.32,
-      "chg_5d": -0.19,
-      "chg_20d": -0.83
+      "as_of": "2026-09-07",
+      "value": 15.3,
+      "chg_5d": 0.38,
+      "chg_20d": -0.16
     },
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-08-28",
-      "value": 159.97,
-      "chg_5d": 1.06,
-      "chg_20d": 0.81
+      "as_of": "2026-09-04",
+      "value": 156.11,
+      "chg_5d": -3.86,
+      "chg_20d": -1.43
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-08-28",
-      "value": 118.7479,
-      "chg_5d": 0.6851,
-      "chg_20d": -0.9555
+      "as_of": "2026-09-04",
+      "value": 118.0732,
+      "chg_5d": -0.6747,
+      "chg_20d": -0.9917
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-09-04",
+      "as_of": "2026-09-08",
       "value": 0.41,
-      "chg_5d": 0.02,
-      "chg_20d": -0.05
+      "chg_5d": 0.0,
+      "chg_20d": -0.06
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-09-04",
-      "value": 2.35,
-      "chg_5d": 0.04,
-      "chg_20d": 0.1
+      "as_of": "2026-09-08",
+      "value": 2.37,
+      "chg_5d": 0.06,
+      "chg_20d": 0.08
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -96,10 +96,10 @@
     "DEXKOUS": {
       "name": "USD/KRW",
       "layer": "E-fx",
-      "as_of": "2026-08-28",
-      "value": 1379.41,
-      "chg_5d": -5.6,
-      "chg_20d": -57.4
+      "as_of": "2026-09-04",
+      "value": 1346.51,
+      "chg_5d": -32.9,
+      "chg_20d": -63.43
     },
     "PAYEMS": {
       "name": "Nonfarm payrolls",
@@ -140,10 +140,10 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-09-02",
-      "value_bp": 3.0,
-      "chg_5d_bp": -10.0,
-      "chg_20d_bp": -3.0
+      "as_of": "2026-09-04",
+      "value_bp": 6.0,
+      "chg_5d_bp": -3.0,
+      "chg_20d_bp": 3.0
     },
     "nonfin_cp_bill_bp": {
       "as_of": "2026-09-03",
@@ -157,6 +157,8 @@
       "chg_4w_B": 39.5
     }
   },
-  "heuristic_flags": [],
+  "heuristic_flags": [
+    "USDJPY_down_ge_2_in_5d_yen_strength"
+  ],
   "disclaimer": "Heuristic flags are teaching aids only. B buybacks/flows tracked separately (see latest_buybacks.json); true XCCY basis and C microstructure are NOT in this feed."
 }
