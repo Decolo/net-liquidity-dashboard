@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-08 23:47 UTC",
+  "updated_utc": "2026-09-09 23:46 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,7 +49,7 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 40,
+  "count_in_window": 41,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
@@ -62,11 +62,11 @@
       "ticker": "AMZN",
       "name": "Amazon",
       "cik": "0001018724",
-      "form": "424B3",
-      "filing_date": "2026-08-18",
-      "accession": "0001104659-26-098339",
-      "description": "424B3",
-      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926098339/tm2617924-6_424b3.htm"
+      "form": "FWP",
+      "filing_date": "2026-09-09",
+      "accession": "0001104659-26-106322",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926106322/tm2624614d4_fwp.htm"
     },
     "GOOGL": {
       "ticker": "GOOGL",
@@ -112,6 +112,26 @@
     }
   },
   "recent": [
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "cik": "0001018724",
+      "form": "FWP",
+      "filing_date": "2026-09-09",
+      "accession": "0001104659-26-106322",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926106322/tm2624614d4_fwp.htm"
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "cik": "0001018724",
+      "form": "424B5",
+      "filing_date": "2026-09-09",
+      "accession": "0001104659-26-106115",
+      "description": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926106115/tm2624614-1_424b5.htm"
+    },
     {
       "ticker": "AMZN",
       "name": "Amazon",
@@ -491,26 +511,6 @@
       "accession": "0001193125-26-194082",
       "description": "424B2",
       "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526194082/d109954d424b2.htm"
-    },
-    {
-      "ticker": "META",
-      "name": "Meta",
-      "cik": "0001326801",
-      "form": "S-3ASR",
-      "filing_date": "2026-04-30",
-      "accession": "0001193125-26-194008",
-      "description": "S-3ASR",
-      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526194008/d102985ds3asr.htm"
-    },
-    {
-      "ticker": "AMZN",
-      "name": "Amazon",
-      "cik": "0001018724",
-      "form": "424B5",
-      "filing_date": "2026-03-13",
-      "accession": "0001104659-26-027669",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926027669/tm266670-6_424b5.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",
