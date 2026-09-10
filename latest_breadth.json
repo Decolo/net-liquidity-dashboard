@@ -1,36 +1,36 @@
 {
-  "updated_utc": "2026-09-09 23:46 UTC",
+  "updated_utc": "2026-09-10 23:37 UTC",
   "source": "yfinance (SPDR sector ETFs + SPY/QQQ/IWM/DIA)",
   "layer": "C-market breadth (proxy)",
-  "as_of": "2026-09-09",
+  "as_of": "2026-09-10",
   "sectors": {
     "count": 11,
-    "advancing_today": 1,
+    "advancing_today": 2,
     "declining_today": 9,
     "advancing_names": [
-      "XLE"
+      "XLP",
+      "XLC"
     ],
-    "pct_above_50d_ma": 45.5,
+    "pct_above_50d_ma": 27.3,
     "above_50d_names": [
       "XLK",
-      "XLF",
-      "XLV",
       "XLE",
       "XLC"
     ]
   },
   "spy": {
-    "above_50d_ma": true,
+    "above_50d_ma": false,
     "above_200d_ma": true
   },
   "size_style_20d_pct": {
-    "SPY": -1.06,
-    "QQQ": -0.3,
-    "IWM": -3.44,
-    "DIA": -2.38
+    "SPY": -1.9,
+    "QQQ": -2.07,
+    "IWM": -4.96,
+    "DIA": -2.97
   },
   "heuristic_flags": [
-    "narrow_leadership"
+    "breadth_weak_le_30pct",
+    "small_caps_lagging_ge_3pct_20d"
   ],
   "read_hint": "Sector participation proxies A/D breadth without scanning constituents. narrow_leadership = index held up by few sectors \u2014 fragile tape.",
   "disclaimer": "Sector-ETF breadth is a coarse proxy for constituent-level A/D. Not a trading signal."
