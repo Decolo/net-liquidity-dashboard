@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-17 00:01 UTC",
+  "updated_utc": "2026-09-17 23:50 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-15",
-      "value": 2.76,
-      "chg_5d": 0.09,
-      "chg_20d": 0.01
+      "as_of": "2026-09-16",
+      "value": 2.7,
+      "chg_5d": -0.01,
+      "chg_20d": -0.03
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-15",
-      "value": 0.8,
-      "chg_5d": -0.01,
-      "chg_20d": -0.02
+      "as_of": "2026-09-16",
+      "value": 0.78,
+      "chg_5d": -0.03,
+      "chg_20d": -0.03
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-09-15",
-      "value": 17.2,
-      "chg_5d": 1.48,
-      "chg_20d": 1.36
+      "as_of": "2026-09-16",
+      "value": 17.71,
+      "chg_5d": 1.25,
+      "chg_20d": 2.82
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,17 +70,17 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "value": 0.27,
-      "chg_5d": -0.13,
-      "chg_20d": -0.25
+      "chg_5d": -0.12,
+      "chg_20d": -0.19
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-09-16",
+      "as_of": "2026-09-17",
       "value": 2.33,
-      "chg_5d": -0.04,
+      "chg_5d": -0.07,
       "chg_20d": 0.03
     },
     "CPILFESL": {
@@ -146,15 +146,15 @@
       "chg_20d_bp": -20.0
     },
     "nonfin_cp_bill_bp": {
-      "as_of": "2026-09-10",
-      "value_bp": -6.0,
-      "chg_5d_bp": -3.0,
-      "chg_20d_bp": -11.0
+      "as_of": "2026-09-16",
+      "value_bp": 4.0,
+      "chg_5d_bp": 3.0,
+      "chg_20d_bp": 2.0
     },
     "foreign_official_rrp": {
-      "as_of": "2026-09-09",
-      "value_B": 349.2,
-      "chg_4w_B": -8.2
+      "as_of": "2026-09-16",
+      "value_B": 318.4,
+      "chg_4w_B": -54.9
     }
   },
   "heuristic_flags": [],
