@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-18 23:48 UTC",
+  "updated_utc": "2026-09-22 00:30 UTC",
   "source": "yfinance (SPDR sector ETFs + SPY/QQQ/IWM/DIA)",
   "layer": "C-market breadth (proxy)",
   "as_of": "2026-09-18",
@@ -23,10 +23,10 @@
     "above_200d_ma": true
   },
   "size_style_20d_pct": {
-    "SPY": -0.12,
+    "SPY": 0.13,
     "QQQ": 1.48,
     "IWM": -4.31,
-    "DIA": -2.12
+    "DIA": -1.9
   },
   "heuristic_flags": [
     "breadth_weak_le_30pct",
