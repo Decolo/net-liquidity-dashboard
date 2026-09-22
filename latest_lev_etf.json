@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-09-22 00:30 UTC",
+  "updated_utc": "2026-09-22 00:38 UTC",
   "data_as_of": "2026-09-04",
-  "stale_days": 9,
+  "stale_days": 10,
   "source": "Yahoo Finance (yfinance) — info.totalAssets",
   "layer": "B-leverage",
   "total_aum_B": 90.21,
@@ -100,7 +100,7 @@
     }
   ],
   "heuristic_flags": [
-    "aum_stale_9d"
+    "aum_stale_10d"
   ],
   "read_hint": "Leveraged ETF AUM shrinking = retail/speculative money leaving. Rapid drawdown (>20% in 30d) signals forced deleveraging risk. stale_days > 0 means Yahoo's totalAssets has not refreshed — treat AUM as of data_as_of, not today. Flag 'aum_stale_Nd' fires at N>=2.",
   "disclaimer": "AUM from Yahoo Finance (yfinance) info.totalAssets, which refreshes with a lag of days. stale_days shows how old the figure is. Not a trading signal."
