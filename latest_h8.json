@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-25 00:12 UTC",
+  "updated_utc": "2026-09-26 00:19 UTC",
   "source": "FRED (Fed H.8 release)",
   "layer": "A-bank credit transmission",
   "frequency": "weekly (Wednesday release, ~1w lag); BUSLOANS monthly",
@@ -7,17 +7,17 @@
   "series": {
     "TLAACBW027SBOG": {
       "name": "Total loans & leases, all commercial banks",
-      "as_of": "2026-09-09",
-      "value_B": 25804.4,
-      "value_T": 25.804,
-      "chg_4w_B": 208.5,
-      "chg_13w_B": 321.21
+      "as_of": "2026-09-16",
+      "value_B": 25771.8,
+      "value_T": 25.772,
+      "chg_4w_B": 119.62,
+      "chg_13w_B": 337.42
     },
     "BUSLOANS": {
       "name": "C&I loans (monthly)",
       "as_of": "2026-08-01",
       "value_B": 2945.1,
-      "chg_3m_B": 56.63
+      "chg_3m_B": 56.6
     }
   },
   "heuristic_flags": [],
