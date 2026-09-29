@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-26 00:19 UTC",
+  "updated_utc": "2026-09-29 01:23 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,18 +30,18 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-24",
-      "value": 2.8,
-      "chg_5d": 0.1,
-      "chg_20d": 0.17
+      "as_of": "2026-09-25",
+      "value": 2.93,
+      "chg_5d": 0.25,
+      "chg_20d": 0.33
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-24",
-      "value": 0.79,
-      "chg_5d": 0.01,
-      "chg_20d": 0.0
+      "as_of": "2026-09-25",
+      "value": 0.81,
+      "chg_5d": 0.04,
+      "chg_20d": 0.02
     },
     "VIXCLS": {
       "name": "VIX",
@@ -54,34 +54,34 @@
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-09-18",
-      "value": 156.87,
-      "chg_5d": 3.16,
-      "chg_20d": -1.98
+      "as_of": "2026-09-25",
+      "value": 157.18,
+      "chg_5d": 0.31,
+      "chg_20d": -2.08
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-09-18",
-      "value": 119.5133,
-      "chg_5d": 1.3007,
-      "chg_20d": 1.2585
+      "as_of": "2026-09-25",
+      "value": 120.33,
+      "chg_5d": 0.8167,
+      "chg_20d": 1.9717
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-09-25",
-      "value": 0.36,
-      "chg_5d": 0.11,
-      "chg_20d": -0.11
+      "as_of": "2026-09-28",
+      "value": 0.32,
+      "chg_5d": 0.12,
+      "chg_20d": -0.07
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-09-25",
+      "as_of": "2026-09-28",
       "value": 2.34,
-      "chg_5d": 0.01,
-      "chg_20d": 0.01
+      "chg_5d": 0.0,
+      "chg_20d": 0.03
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -96,10 +96,10 @@
     "DEXKOUS": {
       "name": "USD/KRW",
       "layer": "E-fx",
-      "as_of": "2026-09-18",
-      "value": 1387.97,
-      "chg_5d": 47.67,
-      "chg_20d": -5.38
+      "as_of": "2026-09-25",
+      "value": 1356.51,
+      "chg_5d": -31.46,
+      "chg_20d": -24.74
     },
     "PAYEMS": {
       "name": "Nonfarm payrolls",

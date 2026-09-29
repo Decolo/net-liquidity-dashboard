@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-09-26 00:19 UTC",
+  "updated_utc": "2026-09-29 01:23 UTC",
   "data_as_of": "2026-09-04",
-  "stale_days": 12,
+  "stale_days": 13,
   "source": "Yahoo Finance (yfinance) — info.totalAssets",
   "layer": "B-leverage",
   "total_aum_B": 90.21,
@@ -13,94 +13,94 @@
       "name": "Direxion Daily Semiconductor Bu",
       "aum_M": 19311.8,
       "aum_source": "yahoo_totalAssets",
-      "price": 151.45,
-      "nav_price": 146.52,
-      "as_of": "2026-09-26"
+      "price": 142.29,
+      "nav_price": 151.55,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "SOXS",
       "name": "Direxion Daily Semiconductor Be",
       "aum_M": 1403.3,
       "aum_source": "yahoo_totalAssets",
-      "price": 32.43,
-      "nav_price": 33.59,
-      "as_of": "2026-09-26"
+      "price": 34.43,
+      "nav_price": 32.45,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "USD",
       "name": "ProShares Ultra Semiconductors",
       "aum_M": 2668.7,
       "aum_source": "yahoo_totalAssets",
-      "price": 95.52,
-      "nav_price": 94.58,
-      "as_of": "2026-09-26"
+      "price": 94.72,
+      "nav_price": 95.52,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "SSG",
       "name": "ProShares UltraShort Semiconduc",
       "aum_M": 37.8,
       "aum_source": "yahoo_totalAssets",
-      "price": 10.49,
-      "nav_price": 10.6,
-      "as_of": "2026-09-26"
+      "price": 10.59,
+      "nav_price": 10.5,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "SSO",
       "name": "ProShares Ultra S&P500",
       "aum_M": 8813.3,
       "aum_source": "yahoo_totalAssets",
-      "price": 70.98,
-      "nav_price": 70.29,
-      "as_of": "2026-09-26"
+      "price": 69.89,
+      "nav_price": 70.98,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "UPRO",
       "name": "ProShares UltraPro S&P 500",
       "aum_M": 5447.6,
       "aum_source": "yahoo_totalAssets",
-      "price": 152.2,
-      "nav_price": 150.07,
-      "as_of": "2026-09-26"
+      "price": 148.75,
+      "nav_price": 152.24,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "SPXU",
       "name": "ProShares UltraPro Short S&P500",
       "aum_M": 380.5,
       "aum_source": "yahoo_totalAssets",
-      "price": 33.59,
-      "nav_price": 34.07,
-      "as_of": "2026-09-26"
+      "price": 34.37,
+      "nav_price": 33.59,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "QLD",
       "name": "ProShares Ultra QQQ",
       "aum_M": 14098.7,
       "aum_source": "yahoo_totalAssets",
-      "price": 96.95,
-      "nav_price": 96.16,
-      "as_of": "2026-09-26"
+      "price": 94.87,
+      "nav_price": 96.94,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "TQQQ",
       "name": "ProShares UltraPro QQQ",
       "aum_M": 36114.2,
       "aum_source": "yahoo_totalAssets",
-      "price": 79.6,
-      "nav_price": 78.67,
-      "as_of": "2026-09-26"
+      "price": 77.04,
+      "nav_price": 79.6,
+      "as_of": "2026-09-29"
     },
     {
       "ticker": "SQQQ",
       "name": "ProShares UltraPro Short QQQ",
       "aum_M": 1935.7,
       "aum_source": "yahoo_totalAssets",
-      "price": 33.75,
-      "nav_price": 34.13,
-      "as_of": "2026-09-26"
+      "price": 34.83,
+      "nav_price": 33.74,
+      "as_of": "2026-09-29"
     }
   ],
   "heuristic_flags": [
-    "aum_stale_12d"
+    "aum_stale_13d"
   ],
   "read_hint": "Leveraged ETF AUM shrinking = retail/speculative money leaving. Rapid drawdown (>20% in 30d) signals forced deleveraging risk. stale_days > 0 means Yahoo's totalAssets has not refreshed — treat AUM as of data_as_of, not today. Flag 'aum_stale_Nd' fires at N>=2.",
   "disclaimer": "AUM from Yahoo Finance (yfinance) info.totalAssets, which refreshes with a lag of days. stale_days shows how old the figure is. Not a trading signal."
