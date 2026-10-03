@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-02 01:28 UTC",
+  "updated_utc": "2026-10-03 00:52 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-30",
-      "value": 3.12,
-      "chg_5d": 0.39,
-      "chg_20d": 0.46
+      "as_of": "2026-10-01",
+      "value": 3.24,
+      "chg_5d": 0.44,
+      "chg_20d": 0.59
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-09-30",
-      "value": 0.84,
+      "as_of": "2026-10-01",
+      "value": 0.86,
       "chg_5d": 0.07,
-      "chg_20d": 0.03
+      "chg_20d": 0.05
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-09-30",
-      "value": 16.34,
-      "chg_5d": 1.16,
-      "chg_20d": 1.14
+      "as_of": "2026-10-01",
+      "value": 16.39,
+      "chg_5d": 0.72,
+      "chg_20d": 2.07
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-10-01",
-      "value": 0.46,
-      "chg_5d": 0.15,
-      "chg_20d": 0.06
+      "as_of": "2026-10-02",
+      "value": 0.45,
+      "chg_5d": 0.09,
+      "chg_20d": 0.02
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-10-01",
+      "as_of": "2026-10-02",
       "value": 2.36,
-      "chg_5d": 0.03,
-      "chg_20d": 0.02
+      "chg_5d": 0.02,
+      "chg_20d": 0.01
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -104,22 +104,22 @@
     "PAYEMS": {
       "name": "Nonfarm payrolls",
       "layer": "E-labor",
-      "as_of": "2026-08-01",
-      "value": 159075.0,
-      "chg_5d": 425.0,
-      "chg_20d": 759.0,
+      "as_of": "2026-09-01",
+      "value": 159044.0,
+      "chg_5d": 246.0,
+      "chg_20d": 776.0,
       "frequency": "monthly",
-      "mom_chg_k": 162.0
+      "mom_chg_k": 29.0
     },
     "UNRATE": {
       "name": "Unemployment rate",
       "layer": "E-labor",
-      "as_of": "2026-08-01",
-      "value": 4.1,
-      "chg_5d": -0.2,
-      "chg_20d": -0.1,
+      "as_of": "2026-09-01",
+      "value": 4.2,
+      "chg_5d": -0.1,
+      "chg_20d": 0.1,
       "frequency": "monthly",
-      "mom_chg_pp": 0.0
+      "mom_chg_pp": 0.1
     }
   },
   "read_hints": {
@@ -140,10 +140,10 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-09-29",
-      "value_bp": 0.0,
-      "chg_5d_bp": -8.0,
-      "chg_20d_bp": -16.0
+      "as_of": "2026-10-01",
+      "value_bp": 16.0,
+      "chg_5d_bp": 18.0,
+      "chg_20d_bp": 12.0
     },
     "nonfin_cp_bill_bp": {
       "as_of": "2026-09-21",
