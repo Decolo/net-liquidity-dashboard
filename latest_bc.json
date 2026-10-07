@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-06 02:05 UTC",
+  "updated_utc": "2026-10-07 01:10 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-10-02",
-      "value": 3.1,
-      "chg_5d": 0.17,
-      "chg_20d": 0.42
+      "as_of": "2026-10-05",
+      "value": 3.12,
+      "chg_5d": 0.1,
+      "chg_20d": 0.44
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-10-02",
-      "value": 0.85,
-      "chg_5d": 0.04,
-      "chg_20d": 0.04
+      "as_of": "2026-10-05",
+      "value": 0.84,
+      "chg_5d": 0.01,
+      "chg_20d": 0.03
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-10-02",
-      "value": 15.31,
-      "chg_5d": 0.44,
-      "chg_20d": 0.78
+      "as_of": "2026-10-05",
+      "value": 15.52,
+      "chg_5d": -0.55,
+      "chg_20d": 0.22
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-10-05",
-      "value": 0.47,
-      "chg_5d": 0.15,
-      "chg_20d": 0.06
+      "as_of": "2026-10-06",
+      "value": 0.48,
+      "chg_5d": 0.11,
+      "chg_20d": 0.07
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-10-05",
+      "as_of": "2026-10-06",
       "value": 2.36,
-      "chg_5d": 0.02,
-      "chg_20d": 0.01
+      "chg_5d": 0.01,
+      "chg_20d": -0.01
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -140,16 +140,16 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-10-01",
-      "value_bp": 16.0,
-      "chg_5d_bp": 18.0,
-      "chg_20d_bp": 12.0
+      "as_of": "2026-10-05",
+      "value_bp": 3.0,
+      "chg_5d_bp": -2.0,
+      "chg_20d_bp": -5.0
     },
     "nonfin_cp_bill_bp": {
-      "as_of": "2026-09-21",
-      "value_bp": 6.0,
-      "chg_5d_bp": -4.0,
-      "chg_20d_bp": 1.0
+      "as_of": "2026-10-05",
+      "value_bp": 0.0,
+      "chg_5d_bp": -5.0,
+      "chg_20d_bp": -5.0
     },
     "foreign_official_rrp": {
       "as_of": "2026-09-30",
