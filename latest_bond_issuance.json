@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-09 01:38 UTC",
+  "updated_utc": "2026-10-10 01:26 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
