@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-17 00:06 UTC",
+  "updated_utc": "2026-10-20 00:52 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,57 +30,57 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-10-15",
-      "value": 3.23,
-      "chg_5d": 0.08,
-      "chg_20d": 0.53
+      "as_of": "2026-10-16",
+      "value": 3.31,
+      "chg_5d": 0.2,
+      "chg_20d": 0.63
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-10-15",
-      "value": 0.84,
+      "as_of": "2026-10-16",
+      "value": 0.85,
       "chg_5d": 0.02,
-      "chg_20d": 0.06
+      "chg_20d": 0.08
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-10-15",
-      "value": 16.46,
-      "chg_5d": 1.05,
-      "chg_20d": 1.02
+      "as_of": "2026-10-16",
+      "value": 19.99,
+      "chg_5d": 5.15,
+      "chg_20d": 5.18
     },
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-10-09",
-      "value": 158.34,
-      "chg_5d": 0.53,
-      "chg_20d": 4.63
+      "as_of": "2026-10-16",
+      "value": 158.0,
+      "chg_5d": -0.33,
+      "chg_20d": 2.15
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-10-09",
-      "value": 121.6023,
-      "chg_5d": 0.2175,
-      "chg_20d": 3.3897
+      "as_of": "2026-10-16",
+      "value": 121.4048,
+      "chg_5d": -0.0421,
+      "chg_20d": 2.0559
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-10-16",
-      "value": 0.35,
-      "chg_5d": -0.12,
-      "chg_20d": 0.08
+      "as_of": "2026-10-19",
+      "value": 0.38,
+      "chg_5d": -0.06,
+      "chg_20d": 0.13
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-10-16",
+      "as_of": "2026-10-19",
       "value": 2.35,
-      "chg_5d": 0.0,
+      "chg_5d": 0.02,
       "chg_20d": 0.02
     },
     "CPILFESL": {
@@ -96,10 +96,10 @@
     "DEXKOUS": {
       "name": "USD/KRW",
       "layer": "E-fx",
-      "as_of": "2026-10-09",
-      "value": 1342.13,
-      "chg_5d": -3.62,
-      "chg_20d": 1.83
+      "as_of": "2026-10-16",
+      "value": 1334.03,
+      "chg_5d": -9.31,
+      "chg_20d": -46.43
     },
     "PAYEMS": {
       "name": "Nonfarm payrolls",
@@ -140,10 +140,10 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-10-13",
-      "value_bp": -1.0,
-      "chg_5d_bp": -6.0,
-      "chg_20d_bp": -7.0
+      "as_of": "2026-10-16",
+      "value_bp": 5.0,
+      "chg_5d_bp": 5.0,
+      "chg_20d_bp": -3.0
     },
     "nonfin_cp_bill_bp": {
       "as_of": "2026-10-13",
