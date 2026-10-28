@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27 01:14 UTC",
+  "updated_utc": "2026-10-28 00:53 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -82,11 +82,11 @@
       "ticker": "META",
       "name": "Meta",
       "cik": "0001326801",
-      "form": "424B5",
-      "filing_date": "2026-10-26",
-      "accession": "0001193125-26-431043",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526431043/d133631d424b5.htm"
+      "form": "FWP",
+      "filing_date": "2026-10-27",
+      "accession": "0001193125-26-432549",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526432549/d382225dfwp.htm"
     },
     "MSFT": null,
     "ORCL": {
@@ -112,6 +112,16 @@
     }
   },
   "recent": [
+    {
+      "ticker": "META",
+      "name": "Meta",
+      "cik": "0001326801",
+      "form": "FWP",
+      "filing_date": "2026-10-27",
+      "accession": "0001193125-26-432549",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526432549/d382225dfwp.htm"
+    },
     {
       "ticker": "META",
       "name": "Meta",
@@ -501,16 +511,6 @@
       "accession": "0001193125-26-206809",
       "description": "FWP",
       "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526206809/d134313dfwp.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "FWP",
-      "filing_date": "2026-05-05",
-      "accession": "0001193125-26-206404",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526206404/d127573dfwp.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",
