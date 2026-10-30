@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-29 01:29 UTC",
+  "updated_utc": "2026-10-30 01:30 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,11 +49,12 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 45,
+  "count_in_window": 46,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
     "META",
+    "MSFT",
     "ORCL",
     "NVDA"
   ],
@@ -88,7 +89,16 @@
       "description": "424B5 FORWARD PROSUPP",
       "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526436410/d94886d424b5.htm"
     },
-    "MSFT": null,
+    "MSFT": {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "cik": "0000789019",
+      "form": "424B2",
+      "filing_date": "2026-10-29",
+      "accession": "0001193125-26-437008",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526437008/d150456d424b2.htm"
+    },
     "ORCL": {
       "ticker": "ORCL",
       "name": "Oracle",
@@ -112,6 +122,16 @@
     }
   },
   "recent": [
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "cik": "0000789019",
+      "form": "424B2",
+      "filing_date": "2026-10-29",
+      "accession": "0001193125-26-437008",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526437008/d150456d424b2.htm"
+    },
     {
       "ticker": "META",
       "name": "Meta",
@@ -501,16 +521,6 @@
       "accession": "0001193125-26-215570",
       "description": "424B5",
       "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526215570/d137872d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B2",
-      "filing_date": "2026-05-07",
-      "accession": "0001193125-26-212222",
-      "description": "424B2",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526212222/d325417d424b2.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",
