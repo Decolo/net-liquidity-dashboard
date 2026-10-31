@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30 01:30 UTC",
+  "updated_utc": "2026-10-31 01:21 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,7 +49,7 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 46,
+  "count_in_window": 47,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
@@ -93,11 +93,11 @@
       "ticker": "MSFT",
       "name": "Microsoft",
       "cik": "0000789019",
-      "form": "424B2",
-      "filing_date": "2026-10-29",
-      "accession": "0001193125-26-437008",
-      "description": "424B2",
-      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526437008/d150456d424b2.htm"
+      "form": "FWP",
+      "filing_date": "2026-10-30",
+      "accession": "0001193125-26-439794",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526439794/d799291dfwp.htm"
     },
     "ORCL": {
       "ticker": "ORCL",
@@ -122,6 +122,16 @@
     }
   },
   "recent": [
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "cik": "0000789019",
+      "form": "FWP",
+      "filing_date": "2026-10-30",
+      "accession": "0001193125-26-439794",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526439794/d799291dfwp.htm"
+    },
     {
       "ticker": "MSFT",
       "name": "Microsoft",
@@ -511,16 +521,6 @@
       "accession": "0001193125-26-225046",
       "description": "FWP",
       "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526225046/d104539dfwp.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B5",
-      "filing_date": "2026-05-11",
-      "accession": "0001193125-26-215570",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526215570/d137872d424b5.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",
