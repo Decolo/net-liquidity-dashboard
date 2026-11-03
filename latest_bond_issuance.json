@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-02 01:23 UTC",
+  "updated_utc": "2026-11-03 03:14 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,7 +49,7 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 43,
+  "count_in_window": 48,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
@@ -73,11 +73,11 @@
       "ticker": "GOOGL",
       "name": "Alphabet",
       "cik": "0001652044",
-      "form": "424B2",
-      "filing_date": "2026-08-07",
-      "accession": "0001193125-26-340264",
-      "description": "424B2",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526340264/d32286d424b2.htm"
+      "form": "FWP",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-443857",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526443857/d134038dfwp.htm"
     },
     "META": {
       "ticker": "META",
@@ -93,21 +93,21 @@
       "ticker": "MSFT",
       "name": "Microsoft",
       "cik": "0000789019",
-      "form": "FWP",
-      "filing_date": "2026-10-30",
-      "accession": "0001193125-26-439794",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526439794/d799291dfwp.htm"
+      "form": "424B2",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442618",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526442618/d150456d424b2.htm"
     },
     "ORCL": {
       "ticker": "ORCL",
       "name": "Oracle",
       "cik": "0001341439",
-      "form": "424B5",
-      "filing_date": "2026-06-23",
-      "accession": "0001193125-26-278585",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526278585/d120346d424b5.htm"
+      "form": "FWP",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-443918",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526443918/d87441dfwp.htm"
     },
     "AAPL": null,
     "NVDA": {
@@ -122,6 +122,76 @@
     }
   },
   "recent": [
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "cik": "0001652044",
+      "form": "FWP",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-443857",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526443857/d134038dfwp.htm"
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "cik": "0001652044",
+      "form": "424B5",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442515",
+      "description": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526442515/d125079d424b5.htm"
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "cik": "0000789019",
+      "form": "424B2",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442618",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526442618/d150456d424b2.htm"
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle",
+      "cik": "0001341439",
+      "form": "FWP",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-443918",
+      "description": "FWP",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526443918/d87441dfwp.htm"
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle",
+      "cik": "0001341439",
+      "form": "424B5",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442729",
+      "description": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442729/d181425d424b5.htm"
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle",
+      "cik": "0001341439",
+      "form": "424B2",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442722",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442722/d181336d424b2.htm"
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle",
+      "cik": "0001341439",
+      "form": "S-3ASR",
+      "filing_date": "2026-11-02",
+      "accession": "0001193125-26-442669",
+      "description": "S-3ASR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442669/d181173ds3asr.htm"
+    },
     {
       "ticker": "MSFT",
       "name": "Microsoft",
@@ -451,76 +521,6 @@
       "accession": "0001193125-26-252439",
       "description": "424B5",
       "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526252439/d150348d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B5",
-      "filing_date": "2026-06-02",
-      "accession": "0001193125-26-252392",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526252392/d152175d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B5",
-      "filing_date": "2026-06-02",
-      "accession": "0001193125-26-252374",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526252374/d159942d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B5",
-      "filing_date": "2026-06-02",
-      "accession": "0001193125-26-252362",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526252362/d152107d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "FWP",
-      "filing_date": "2026-06-01",
-      "accession": "0001193125-26-251733",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526251733/d160205dfwp.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "S-3ASR",
-      "filing_date": "2026-06-01",
-      "accession": "0001193125-26-251560",
-      "description": "S-3ASR",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526251560/d135361ds3asr.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "424B5",
-      "filing_date": "2026-05-18",
-      "accession": "0001193125-26-228923",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526228923/d137872d424b5.htm"
-    },
-    {
-      "ticker": "GOOGL",
-      "name": "Alphabet",
-      "cik": "0001652044",
-      "form": "FWP",
-      "filing_date": "2026-05-15",
-      "accession": "0001193125-26-225046",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526225046/d104539dfwp.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",
