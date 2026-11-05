@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04 01:49 UTC",
+  "updated_utc": "2026-11-05 01:57 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-02",
-      "value": 3.43,
-      "chg_5d": 0.13,
-      "chg_20d": 0.31
+      "as_of": "2026-11-03",
+      "value": 3.4,
+      "chg_5d": 0.22,
+      "chg_20d": 0.37
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-02",
-      "value": 0.94,
-      "chg_5d": 0.04,
+      "as_of": "2026-11-03",
+      "value": 0.93,
+      "chg_5d": 0.05,
       "chg_20d": 0.1
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-11-02",
-      "value": 21.15,
-      "chg_5d": 2.76,
-      "chg_20d": 5.63
+      "as_of": "2026-11-03",
+      "value": 20.83,
+      "chg_5d": 3.31,
+      "chg_20d": 5.82
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-11-03",
-      "value": 0.34,
-      "chg_5d": 0.05,
-      "chg_20d": -0.13
+      "as_of": "2026-11-04",
+      "value": 0.32,
+      "chg_5d": -0.06,
+      "chg_20d": -0.16
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-11-03",
-      "value": 2.3,
-      "chg_5d": -0.05,
-      "chg_20d": -0.06
+      "as_of": "2026-11-04",
+      "value": 2.26,
+      "chg_5d": -0.12,
+      "chg_20d": -0.1
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -140,10 +140,10 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-11-02",
-      "value_bp": 6.0,
-      "chg_5d_bp": 6.0,
-      "chg_20d_bp": 3.0
+      "as_of": "2026-11-03",
+      "value_bp": 7.0,
+      "chg_5d_bp": -0.0,
+      "chg_20d_bp": 1.0
     },
     "nonfin_cp_bill_bp": {
       "as_of": "2026-10-13",
