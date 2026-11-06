@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05 01:57 UTC",
+  "updated_utc": "2026-11-06 01:57 UTC",
   "source": "SEC EDGAR data.sec.gov/submissions",
   "layer": "B-tech debt issuance (event proxy)",
   "frequency": "event / poll daily",
@@ -49,13 +49,14 @@
       "cik": "0001045810"
     }
   ],
-  "count_in_window": 55,
+  "count_in_window": 57,
   "tickers_with_hits": [
     "AMZN",
     "GOOGL",
     "META",
     "MSFT",
     "ORCL",
+    "AAPL",
     "NVDA"
   ],
   "latest_by_ticker": {
@@ -83,11 +84,11 @@
       "ticker": "META",
       "name": "Meta",
       "cik": "0001326801",
-      "form": "FWP",
-      "filing_date": "2026-11-04",
-      "accession": "0001193125-26-447522",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526447522/d154804dfwp.htm"
+      "form": "424B5",
+      "filing_date": "2026-11-05",
+      "accession": "0001193125-26-448015",
+      "description": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526448015/d135326d424b5.htm"
     },
     "MSFT": {
       "ticker": "MSFT",
@@ -109,7 +110,16 @@
       "description": "424B5",
       "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526445847/d181425d424b5.htm"
     },
-    "AAPL": null,
+    "AAPL": {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "cik": "0000320193",
+      "form": "424B2",
+      "filing_date": "2026-11-05",
+      "accession": "0001140361-26-042046",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000114036126042046/ny20084621x1_424b2.htm"
+    },
     "NVDA": {
       "ticker": "NVDA",
       "name": "NVIDIA",
@@ -122,6 +132,26 @@
     }
   },
   "recent": [
+    {
+      "ticker": "META",
+      "name": "Meta",
+      "cik": "0001326801",
+      "form": "424B5",
+      "filing_date": "2026-11-05",
+      "accession": "0001193125-26-448015",
+      "description": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000119312526448015/d135326d424b5.htm"
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "cik": "0000320193",
+      "form": "424B2",
+      "filing_date": "2026-11-05",
+      "accession": "0001140361-26-042046",
+      "description": "424B2",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000114036126042046/ny20084621x1_424b2.htm"
+    },
     {
       "ticker": "GOOGL",
       "name": "Alphabet",
@@ -501,26 +531,6 @@
       "accession": "0001193125-26-270302",
       "description": "424B5",
       "url": "https://www.sec.gov/Archives/edgar/data/1045810/000119312526270302/d118718d424b5.htm"
-    },
-    {
-      "ticker": "AMZN",
-      "name": "Amazon",
-      "cik": "0001018724",
-      "form": "424B5",
-      "filing_date": "2026-06-10",
-      "accession": "0001104659-26-072332",
-      "description": "424B5",
-      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926072332/tm2613616-2_424b5.htm"
-    },
-    {
-      "ticker": "AMZN",
-      "name": "Amazon",
-      "cik": "0001018724",
-      "form": "FWP",
-      "filing_date": "2026-06-08",
-      "accession": "0001104659-26-071456",
-      "description": "FWP",
-      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000110465926071456/tm2613616d3_fwp.htm"
     }
   ],
   "history_csv": "/home/runner/work/net-liquidity-dashboard/net-liquidity-dashboard/data/bond_filings_recent.csv",

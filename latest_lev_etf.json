@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-11-05 01:57 UTC",
+  "updated_utc": "2026-11-06 01:57 UTC",
   "data_as_of": "2026-11-05",
-  "stale_days": 0,
+  "stale_days": 1,
   "source": "Yahoo Finance (yfinance) — info.totalAssets",
   "layer": "B-leverage",
   "total_aum_B": 86.91,
@@ -13,90 +13,90 @@
       "name": "Direxion Daily Semiconductor Bu",
       "aum_M": 18286.4,
       "aum_source": "yahoo_totalAssets",
-      "price": 66.68,
-      "nav_price": 73.26,
-      "as_of": "2026-11-05"
+      "price": 40.87,
+      "nav_price": 66.61,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "SOXS",
       "name": "Direxion Daily Semiconductor Be",
       "aum_M": 4952.6,
       "aum_source": "yahoo_totalAssets",
-      "price": 58.34,
-      "nav_price": 53.69,
-      "as_of": "2026-11-05"
+      "price": 81.22,
+      "nav_price": 58.56,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "USD",
       "name": "ProShares Ultra Semiconductors",
       "aum_M": 2193.4,
       "aum_source": "yahoo_totalAssets",
-      "price": 65.28,
-      "nav_price": 69.19,
-      "as_of": "2026-11-05"
+      "price": 50.27,
+      "nav_price": 65.09,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "SSG",
       "name": "ProShares UltraShort Semiconduc",
       "aum_M": 43.7,
       "aum_source": "yahoo_totalAssets",
-      "price": 14.48,
-      "nav_price": 13.7,
-      "as_of": "2026-11-05"
+      "price": 17.87,
+      "nav_price": 14.51,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "SSO",
       "name": "ProShares Ultra S&P500",
       "aum_M": 8451.8,
       "aum_source": "yahoo_totalAssets",
-      "price": 69.62,
-      "nav_price": 67.44,
-      "as_of": "2026-11-05"
+      "price": 63.51,
+      "nav_price": 69.58,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "UPRO",
       "name": "ProShares UltraPro S&P 500",
       "aum_M": 5194.8,
       "aum_source": "yahoo_totalAssets",
-      "price": 147.26,
-      "nav_price": 140.46,
-      "as_of": "2026-11-05"
+      "price": 127.87,
+      "nav_price": 147.09,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "SPXU",
       "name": "ProShares UltraPro Short S&P500",
       "aum_M": 428.2,
       "aum_source": "yahoo_totalAssets",
-      "price": 34.46,
-      "nav_price": 36.21,
-      "as_of": "2026-11-05"
+      "price": 39.01,
+      "nav_price": 34.51,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "QLD",
       "name": "ProShares Ultra QQQ",
       "aum_M": 13255.7,
       "aum_source": "yahoo_totalAssets",
-      "price": 82.81,
-      "nav_price": 81.32,
-      "as_of": "2026-11-05"
+      "price": 72.27,
+      "nav_price": 82.8,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "TQQQ",
       "name": "ProShares UltraPro QQQ",
       "aum_M": 32062.3,
       "aum_source": "yahoo_totalAssets",
-      "price": 62.24,
-      "nav_price": 60.55,
-      "as_of": "2026-11-05"
+      "price": 50.47,
+      "nav_price": 62.19,
+      "as_of": "2026-11-06"
     },
     {
       "ticker": "SQQQ",
       "name": "ProShares UltraPro Short QQQ",
       "aum_M": 2040.1,
       "aum_source": "yahoo_totalAssets",
-      "price": 41.56,
-      "nav_price": 42.75,
-      "as_of": "2026-11-05"
+      "price": 49.55,
+      "nav_price": 41.59,
+      "as_of": "2026-11-06"
     }
   ],
   "heuristic_flags": [],
