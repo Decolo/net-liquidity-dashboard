@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-07 01:30 UTC",
+  "updated_utc": "2026-11-10 03:56 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,58 +30,58 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-05",
-      "value": 3.48,
-      "chg_5d": 0.22,
-      "chg_20d": 0.33
+      "as_of": "2026-11-06",
+      "value": 3.42,
+      "chg_5d": -0.02,
+      "chg_20d": 0.31
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-05",
+      "as_of": "2026-11-06",
       "value": 0.93,
-      "chg_5d": 0.04,
-      "chg_20d": 0.11
+      "chg_5d": -0.01,
+      "chg_20d": 0.1
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-11-05",
-      "value": 28.18,
-      "chg_5d": 10.98,
-      "chg_20d": 12.77
+      "as_of": "2026-11-06",
+      "value": 25.64,
+      "chg_5d": 6.22,
+      "chg_20d": 10.8
     },
     "DEXJPUS": {
       "name": "USD/JPY",
       "layer": "B-carry",
-      "as_of": "2026-10-30",
-      "value": 157.47,
-      "chg_5d": 0.6,
-      "chg_20d": -0.16
+      "as_of": "2026-11-06",
+      "value": 158.23,
+      "chg_5d": 0.76,
+      "chg_20d": -0.1
     },
     "DTWEXBGS": {
       "name": "Broad USD (DTWEXBGS)",
       "layer": "B-dollar",
-      "as_of": "2026-10-30",
-      "value": 121.6656,
-      "chg_5d": 0.3454,
-      "chg_20d": -0.1226
+      "as_of": "2026-11-06",
+      "value": 121.8803,
+      "chg_5d": 0.2147,
+      "chg_20d": 0.4334
     },
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-11-06",
-      "value": 0.35,
-      "chg_5d": -0.03,
+      "as_of": "2026-11-09",
+      "value": 0.32,
+      "chg_5d": 0.0,
       "chg_20d": -0.12
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-11-06",
-      "value": 2.23,
-      "chg_5d": -0.11,
-      "chg_20d": -0.12
+      "as_of": "2026-11-09",
+      "value": 2.22,
+      "chg_5d": -0.07,
+      "chg_20d": -0.11
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -96,10 +96,10 @@
     "DEXKOUS": {
       "name": "USD/KRW",
       "layer": "E-fx",
-      "as_of": "2026-10-30",
-      "value": 1333.99,
-      "chg_5d": 8.93,
-      "chg_20d": -30.84
+      "as_of": "2026-11-06",
+      "value": 1361.89,
+      "chg_5d": 27.9,
+      "chg_20d": 18.55
     },
     "PAYEMS": {
       "name": "Nonfarm payrolls",
