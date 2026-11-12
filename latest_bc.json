@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-11 01:39 UTC",
+  "updated_utc": "2026-11-12 02:39 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -46,10 +46,10 @@
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-11-09",
-      "value": 19.92,
-      "chg_5d": -1.23,
-      "chg_20d": 4.71
+      "as_of": "2026-11-10",
+      "value": 19.46,
+      "chg_5d": -1.37,
+      "chg_20d": 4.19
     },
     "DEXJPUS": {
       "name": "USD/JPY",
