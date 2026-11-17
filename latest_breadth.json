@@ -1,17 +1,14 @@
 {
-  "updated_utc": "2026-11-14 01:56 UTC",
+  "updated_utc": "2026-11-17 04:17 UTC",
   "source": "yfinance (SPDR sector ETFs + SPY/QQQ/IWM/DIA)",
   "layer": "C-market breadth (proxy)",
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-16",
   "sectors": {
     "count": 11,
-    "advancing_today": 5,
-    "declining_today": 4,
+    "advancing_today": 2,
+    "declining_today": 9,
     "advancing_names": [
-      "XLF",
-      "XLV",
       "XLP",
-      "XLE",
       "XLU"
     ],
     "pct_above_50d_ma": 63.6,
@@ -20,9 +17,9 @@
       "XLV",
       "XLY",
       "XLP",
-      "XLE",
       "XLB",
-      "XLU"
+      "XLU",
+      "XLRE"
     ]
   },
   "spy": {
@@ -30,10 +27,10 @@
     "above_200d_ma": true
   },
   "size_style_20d_pct": {
-    "SPY": -1.16,
-    "QQQ": -4.21,
-    "IWM": 2.63,
-    "DIA": 0.78
+    "SPY": -3.46,
+    "QQQ": -7.88,
+    "IWM": 0.61,
+    "DIA": -0.62
   },
   "heuristic_flags": [],
   "read_hint": "Sector participation proxies A/D breadth without scanning constituents. narrow_leadership = index held up by few sectors \u2014 fragile tape.",
