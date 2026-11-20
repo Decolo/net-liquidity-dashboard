@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-19 02:54 UTC",
+  "updated_utc": "2026-11-20 02:47 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-17",
-      "value": 3.43,
-      "chg_5d": 0.13,
-      "chg_20d": 0.1
+      "as_of": "2026-11-18",
+      "value": 3.47,
+      "chg_5d": 0.17,
+      "chg_20d": 0.2
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-17",
-      "value": 0.92,
-      "chg_5d": 0.02,
+      "as_of": "2026-11-18",
+      "value": 0.93,
+      "chg_5d": 0.03,
       "chg_20d": 0.05
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-11-17",
-      "value": 25.46,
-      "chg_5d": 6.0,
-      "chg_20d": 8.15
+      "as_of": "2026-11-18",
+      "value": 24.56,
+      "chg_5d": 7.07,
+      "chg_20d": 7.88
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-11-18",
-      "value": 0.27,
-      "chg_5d": 0.02,
-      "chg_20d": -0.06
+      "as_of": "2026-11-19",
+      "value": 0.28,
+      "chg_5d": 0.04,
+      "chg_20d": -0.04
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-11-18",
-      "value": 2.19,
-      "chg_5d": -0.01,
-      "chg_20d": -0.16
+      "as_of": "2026-11-19",
+      "value": 2.16,
+      "chg_5d": -0.08,
+      "chg_20d": -0.21
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -140,10 +140,10 @@
   },
   "funding": {
     "fin_cp_bill_bp": {
-      "as_of": "2026-11-17",
-      "value_bp": 20.0,
-      "chg_5d_bp": 12.0,
-      "chg_20d_bp": 20.0
+      "as_of": "2026-11-18",
+      "value_bp": 7.0,
+      "chg_5d_bp": 10.0,
+      "chg_20d_bp": 2.0
     },
     "nonfin_cp_bill_bp": {
       "as_of": "2026-11-05",
@@ -152,13 +152,11 @@
       "chg_20d_bp": 2.0
     },
     "foreign_official_rrp": {
-      "as_of": "2026-11-11",
-      "value_B": 336.1,
-      "chg_4w_B": 9.5
+      "as_of": "2026-11-18",
+      "value_B": 316.7,
+      "chg_4w_B": -17.1
     }
   },
-  "heuristic_flags": [
-    "VIX_ge_25"
-  ],
+  "heuristic_flags": [],
   "disclaimer": "Heuristic flags are teaching aids only. B buybacks/flows tracked separately (see latest_buybacks.json); true XCCY basis and C microstructure are NOT in this feed."
 }
