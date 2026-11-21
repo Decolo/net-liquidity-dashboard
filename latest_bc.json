@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-20 02:47 UTC",
+  "updated_utc": "2026-11-21 02:57 UTC",
   "layer": "B/C auto slice (partial)",
   "coverage": {
     "included": [
@@ -30,26 +30,26 @@
     "BAMLH0A0HYM2": {
       "name": "HY OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-18",
-      "value": 3.47,
-      "chg_5d": 0.17,
-      "chg_20d": 0.2
+      "as_of": "2026-11-19",
+      "value": 3.52,
+      "chg_5d": 0.32,
+      "chg_20d": 0.12
     },
     "BAMLC0A0CM": {
       "name": "IG OAS (ICE BofA)",
       "layer": "B-credit",
-      "as_of": "2026-11-18",
-      "value": 0.93,
-      "chg_5d": 0.03,
+      "as_of": "2026-11-19",
+      "value": 0.94,
+      "chg_5d": 0.05,
       "chg_20d": 0.05
     },
     "VIXCLS": {
       "name": "VIX",
       "layer": "C-vol",
-      "as_of": "2026-11-18",
-      "value": 24.56,
-      "chg_5d": 7.07,
-      "chg_20d": 7.88
+      "as_of": "2026-11-19",
+      "value": 28.44,
+      "chg_5d": 9.74,
+      "chg_20d": 9.41
     },
     "DEXJPUS": {
       "name": "USD/JPY",
@@ -70,18 +70,18 @@
     "T10Y2Y": {
       "name": "10Y-2Y curve",
       "layer": "B-curve",
-      "as_of": "2026-11-19",
-      "value": 0.28,
-      "chg_5d": 0.04,
-      "chg_20d": -0.04
+      "as_of": "2026-11-20",
+      "value": 0.29,
+      "chg_5d": 0.02,
+      "chg_20d": -0.02
     },
     "T10YIE": {
       "name": "10Y breakeven inflation",
       "layer": "D-inflation",
-      "as_of": "2026-11-19",
-      "value": 2.16,
-      "chg_5d": -0.08,
-      "chg_20d": -0.21
+      "as_of": "2026-11-20",
+      "value": 2.15,
+      "chg_5d": -0.09,
+      "chg_20d": -0.17
     },
     "CPILFESL": {
       "name": "Core CPI (ex food & energy)",
@@ -157,6 +157,8 @@
       "chg_4w_B": -17.1
     }
   },
-  "heuristic_flags": [],
+  "heuristic_flags": [
+    "VIX_ge_25"
+  ],
   "disclaimer": "Heuristic flags are teaching aids only. B buybacks/flows tracked separately (see latest_buybacks.json); true XCCY basis and C microstructure are NOT in this feed."
 }
