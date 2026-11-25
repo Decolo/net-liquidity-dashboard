@@ -1,25 +1,26 @@
 {
-  "updated_utc": "2026-11-24 05:46 UTC",
+  "updated_utc": "2026-11-25 04:44 UTC",
   "source": "yfinance (SPDR sector ETFs + SPY/QQQ/IWM/DIA)",
   "layer": "C-market breadth (proxy)",
-  "as_of": "2026-11-23",
+  "as_of": "2026-11-24",
   "sectors": {
     "count": 11,
     "advancing_today": 9,
     "declining_today": 2,
     "advancing_names": [
-      "XLK",
       "XLF",
       "XLV",
       "XLY",
-      "XLI",
+      "XLP",
+      "XLE",
       "XLB",
       "XLU",
       "XLRE",
       "XLC"
     ],
-    "pct_above_50d_ma": 45.5,
+    "pct_above_50d_ma": 54.5,
     "above_50d_names": [
+      "XLF",
       "XLV",
       "XLY",
       "XLP",
@@ -32,10 +33,10 @@
     "above_200d_ma": false
   },
   "size_style_20d_pct": {
-    "SPY": -5.63,
-    "QQQ": -8.59,
-    "IWM": -4.06,
-    "DIA": -5.09
+    "SPY": -6.61,
+    "QQQ": -11.53,
+    "IWM": -4.65,
+    "DIA": -4.39
   },
   "heuristic_flags": [
     "spy_below_200d"
