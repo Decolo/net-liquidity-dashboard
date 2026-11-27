@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-11-26 03:53 UTC",
+  "updated_utc": "2026-11-27 03:54 UTC",
   "data_as_of": "2026-11-05",
-  "stale_days": 15,
+  "stale_days": 16,
   "source": "Yahoo Finance (yfinance) — info.totalAssets",
   "layer": "B-leverage",
   "total_aum_B": 86.91,
@@ -14,8 +14,8 @@
       "aum_M": 18286.4,
       "aum_source": "yahoo_totalAssets",
       "price": 32.02,
-      "nav_price": 32.58,
-      "as_of": "2026-11-26"
+      "nav_price": 32.05,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "SOXS",
@@ -23,8 +23,8 @@
       "aum_M": 4952.6,
       "aum_source": "yahoo_totalAssets",
       "price": 62.13,
-      "nav_price": 61.13,
-      "as_of": "2026-11-26"
+      "nav_price": 62.11,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "USD",
@@ -32,8 +32,8 @@
       "aum_M": 2193.4,
       "aum_source": "yahoo_totalAssets",
       "price": 39.37,
-      "nav_price": 41.14,
-      "as_of": "2026-11-26"
+      "nav_price": 39.31,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "SSG",
@@ -41,8 +41,8 @@
       "aum_M": 43.7,
       "aum_source": "yahoo_totalAssets",
       "price": 35.59,
-      "nav_price": 33.41,
-      "as_of": "2026-11-26"
+      "nav_price": 34.91,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "SSO",
@@ -50,8 +50,8 @@
       "aum_M": 8451.8,
       "aum_source": "yahoo_totalAssets",
       "price": 60.18,
-      "nav_price": 60.5,
-      "as_of": "2026-11-26"
+      "nav_price": 60.17,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "UPRO",
@@ -59,8 +59,8 @@
       "aum_M": 5194.8,
       "aum_source": "yahoo_totalAssets",
       "price": 116.8,
-      "nav_price": 117.77,
-      "as_of": "2026-11-26"
+      "nav_price": 116.81,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "SPXU",
@@ -68,8 +68,8 @@
       "aum_M": 428.2,
       "aum_source": "yahoo_totalAssets",
       "price": 40.79,
-      "nav_price": 40.45,
-      "as_of": "2026-11-26"
+      "nav_price": 40.8,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "QLD",
@@ -77,8 +77,8 @@
       "aum_M": 13255.7,
       "aum_source": "yahoo_totalAssets",
       "price": 68.15,
-      "nav_price": 69.05,
-      "as_of": "2026-11-26"
+      "nav_price": 68.15,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "TQQQ",
@@ -86,8 +86,8 @@
       "aum_M": 32062.3,
       "aum_source": "yahoo_totalAssets",
       "price": 45.28,
-      "nav_price": 46.16,
-      "as_of": "2026-11-26"
+      "nav_price": 45.25,
+      "as_of": "2026-11-27"
     },
     {
       "ticker": "SQQQ",
@@ -95,12 +95,12 @@
       "aum_M": 2040.1,
       "aum_source": "yahoo_totalAssets",
       "price": 49.6,
-      "nav_price": 48.66,
-      "as_of": "2026-11-26"
+      "nav_price": 49.63,
+      "as_of": "2026-11-27"
     }
   ],
   "heuristic_flags": [
-    "aum_stale_15d"
+    "aum_stale_16d"
   ],
   "read_hint": "Leveraged ETF AUM shrinking = retail/speculative money leaving. Rapid drawdown (>20% in 30d) signals forced deleveraging risk. stale_days > 0 means Yahoo's totalAssets has not refreshed — treat AUM as of data_as_of, not today. Flag 'aum_stale_Nd' fires at N>=2.",
   "disclaimer": "AUM from Yahoo Finance (yfinance) info.totalAssets, which refreshes with a lag of days. stale_days shows how old the figure is. Not a trading signal."
